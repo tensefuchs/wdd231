@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WDD 231 • Home</title>
+  <meta name="description" content="Course home page for WDD 231: Web Frontend Development." />
+  <meta name="author" content="Supa-anan Fuchs" />
+
+  <!-- Google Font example (one family) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link href="styles/small.css" rel="stylesheet" />
+  <link href="styles/larger.css" rel="stylesheet" />
+
+  <!-- JS in head with defer -->
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/courses.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <img src="images/logo.svg" alt="Site logo" class="logo" width="40" height="40" />
+    <span class="site-title">Your Name</span>
+    <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+    <nav id="primary-nav" class="nav">
+      <ul>
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="chamber/">Chamber</a></li>
+        <li><a href="final/">Final</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Home</h1>
+
+    <section>
+      <h2>About This Page</h2>
+      <p>This page demonstrates responsive layout, accessible navigation, and Lighthouse-friendly structure.</p>
+    </section>
+
+    <section>
+      <h2>Certificate Courses</h2>
+      <div class="filters">
+        <button data-filter="all">All Courses</button>
+        <button data-filter="WDD">WDD Courses</button>
+        <button data-filter="CSE">CSE Courses</button>
+      </div>
+      <div id="courses" class="card-grid" aria-live="polite"></div>
+      <p class="total"><strong>Total Credits:</strong> <span id="creditTotal">0</span></p>
+    </section>
+
+    <section>
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1">MDN: &lt;h1&gt;</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; <span id="currentyear"></span> • Supa-anan Fuchs • Düsseldorf, Germany
+    </p>
+    <p id="lastModified"></p>
+    <p class="social">
+      <a href="https://github.com/tensefuchs/wdd231" aria-label="GitHub">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/supa-anan-fuchs-220138216/" aria-label="LinkedIn">LinkedIn</a>
+    </p>
+  </footer>
+</body>
+</html>
