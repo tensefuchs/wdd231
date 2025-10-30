@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <link href="styles/small.css" rel="stylesheet">
-  <link href="styles/larger.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
 
   <script src="scripts/nav.js" defer></script>
   <script src="scripts/date.js" defer></script>
@@ -21,48 +21,76 @@
 </head>
 <body>
 <header class="site-header">
-  <img src="images/logo.svg" alt="Site logo" class="logo" width="40" height="40">
-  <span class="site-title">Supa-anan Fuchs</span>
+  <div class="brand">
+    <img src="images/logo.svg" alt="Site logo" width="40" height="40">
+    <span>Site Name</span>
+  </div>
 
   <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
   <nav id="primary-nav" class="nav">
     <ul>
       <li><a href="./" aria-current="page">Home</a></li>
-      <li><a href="chamber/">Chamber</a></li>
-      <li><a href="final/">Final</a></li>
+      <li><a href="chamber/">Chamber Project</a></li>
+      <li><a href="final/">Final Project</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <section class="hero">
-    <div>
-      <h1>Welcome to my WDD 231 Home Page</h1>
-      <p>I'm Supa-anan Fuchs — excited to learn advanced web frontend skills this semester.</p>
-    </div>
+  <h1>Home</h1>
 
-    <img src="images/profile.webp" alt="Portrait of Supa-anan Fuchs" width="240" height="240">
+  <!-- ABOUT GRID (matches wireframe headings & boxes) -->
+  <section class="about">
+    <article class="panel">
+      <h2 class="panel-title">About Me</h2>
+      <div class="panel-body">
+        <p>
+          Massa facilisis per purus si imperdiet curae amet. Et fames lorem mi
+          phasellus congue nascetur enim consectetur sociosqu natoque risus. Odio
+          vehicula libero nisl viverra augue commodo pretium vivamus at duis magna.
+          Quam fringilla convallis ridiculus malesuada accumsan potenti magnis
+          volutpat. Nunc ipsum, dis maecenas et praesent class fringilla.
+        </p>
+      </div>
+    </article>
+
+    <aside class="panel">
+      <h2 class="panel-title">Student Photo</h2>
+      <div class="panel-body photo-wrap">
+        <!-- keep small (≤125 kB) -->
+        <img src="images/profile.webp" alt="Student photo" width="320" height="320">
+      </div>
+    </aside>
   </section>
 
-  <section>
-    <h2>Certificate Courses</h2>
+  <!-- COURSES SECTION -->
+  <section class="courses-wrap">
+    <h2 class="bar">Web Certificate Courses</h2>
 
-    <div class="filters">
-      <button data-filter="all" aria-pressed="true">All Courses</button>
-      <button data-filter="WDD" aria-pressed="false">WDD Courses</button>
-      <button data-filter="CSE" aria-pressed="false">CSE Courses</button>
+    <div class="filters" role="toolbar" aria-label="Course filters">
+      <button data-filter="all" aria-pressed="true">All</button>
+      <button data-filter="CSE" aria-pressed="false">CSE</button>
+      <button data-filter="WDD" aria-pressed="false">WDD</button>
     </div>
 
-    <div id="courses" class="card-grid" aria-live="polite"></div>
+    <ul id="courses" class="course-list" aria-live="polite"></ul>
 
-    <p class="total">
-      <strong>Total Credits:</strong> <span id="creditTotal">0</span>
+    <p class="credits-note">
+      The total credits for course listed above is
+      <strong><span id="creditTotal">0</span></strong>
     </p>
+  </section>
+
+  <!-- Social row -->
+  <section class="social-row" aria-label="Social links">
+    <a class="icon-link" href="https://www.linkedin.com/in/supa-anan-fuchs-220138216/" aria-label="LinkedIn">in</a>
+    <a class="icon-link" href="https://github.com/tensefuchs" aria-label="GitHub">GH</a>
+    <a class="icon-link" href="https://x.com" aria-label="X / Twitter">X</a>
   </section>
 </main>
 
 <footer>
-  <p>&copy; <span id="currentyear"></span> • Supa-anan Fuchs • Düsseldorf, Germany</p>
+  <p>&copy; <span id="currentyear"></span> • Student Name • Utah, USA</p>
   <p id="lastModified"></p>
 </footer>
 </body>
