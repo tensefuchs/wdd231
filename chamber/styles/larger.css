@@ -1,0 +1,7 @@
+@media (min-width: 48rem) {
+  #menu { display: none; }
+  .nav { display: block !important; }
+  .nav ul { display: flex; gap: .75rem; margin: 0; }
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>City Chamber of Commerce</title>
+  <meta name="description" content="City Chamber of Commerce — promoting local business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">City Chamber</a>
+    <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+    <nav id="primary-nav" class="nav">
+      <ul>
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to the City Chamber</h1>
+    <section class="hero" role="region" aria-label="Hero">
+      <h2>Grow Together</h2>
+      <p>Resources, networking, and advocacy for local businesses.</p>
+      <a class="btn" href="join.html">Become a Member</a>
+    </section>
+
+    <section aria-labelledby="events-title">
+      <h2 id="events-title">Upcoming Events</h2>
+      <ul class="cards">
+        <li><strong>First Friday</strong> — Downtown meetup</li>
+        <li><strong>Women in Business</strong> — Breakfast & panel</li>
+        <li><strong>Tech Night</strong> — Demos + hiring</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> City Chamber</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

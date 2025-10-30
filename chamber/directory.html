@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Directory • City Chamber</title>
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/members.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./">City Chamber</a>
+  <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+  <nav id="primary-nav" class="nav">
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="directory.html" aria-current="page">Directory</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Member Directory</h1>
+  <div class="toolbar">
+    <button data-view="grid" aria-pressed="true">Grid</button>
+    <button data-view="list">List</button>
+    <input id="q" type="search" placeholder="Search businesses…" aria-label="Search businesses">
+  </div>
+  <section id="members" class="grid" aria-live="polite"></section>
+</main>
+
+<footer>
+  <p>&copy; <span id="currentyear"></span> City Chamber</p>
+  <p id="lastModified"></p>
+</footer>
+</body>
+</html>

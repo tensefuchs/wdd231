@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Discover • City Chamber</title>
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/lazyload.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./">City Chamber</a>
+  <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+  <nav id="primary-nav" class="nav">
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="discover.html" aria-current="page">Discover</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Discover Our Community</h1>
+
+  <section>
+    <h2>Photo Highlights</h2>
+    <div class="gallery">
+      <img data-src="images/market.webp" alt="Weekend market" width="600" height="400" loading="lazy">
+      <img data-src="images/river.webp" alt="Riverwalk" width="600" height="400" loading="lazy">
+      <img data-src="images/festival.webp" alt="City festival" width="600" height="400" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>Fast Facts</h2>
+    <ul class="cards">
+      <li><strong>Population:</strong> 74,000</li>
+      <li><strong>Median Business Age:</strong> 8 years</li>
+      <li><strong>Main Industries:</strong> Food, Design, Fitness</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="currentyear"></span> City Chamber</p>
+  <p id="lastModified"></p>
+</footer>
+</body>
+</html>

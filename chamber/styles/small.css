@@ -1,0 +1,20 @@
+:root { --gap: 1rem; --pad: 1rem; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, Arial, sans-serif; line-height: 1.5; }
+.site-header { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--gap); padding: var(--pad); border-bottom: 1px solid #eee; }
+.brand { font-weight: 800; text-decoration: none; color: inherit; }
+#menu { font-size: 1.25rem; background: none; border: 1px solid #ccc; padding: .25rem .5rem; border-radius: .5rem; }
+.nav { display: none; }
+.nav.open { display: block; }
+.nav ul { list-style: none; margin: .5rem 0 0; padding: 0; }
+.nav a { display: block; padding: .5rem .75rem; text-decoration: none; }
+main { padding: var(--pad); }
+.cards { display: grid; gap: var(--gap); padding: 0; list-style: none; }
+.card, .cards li { border: 1px solid #eee; border-radius: .75rem; padding: 1rem; }
+.toolbar { display: flex; gap: .5rem; align-items: center; margin: 1rem 0; }
+.grid { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+.row { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: .5rem; padding: .75rem; border-bottom: 1px solid #eee; }
+.gallery { display: grid; gap: var(--gap); }
+.gallery img { width: 100%; height: auto; border-radius: .5rem; }
+.btn { display: inline-block; padding: .5rem .9rem; border: 1px solid #222; border-radius: .5rem; text-decoration: none; }
+footer { padding: var(--pad); border-top: 1px solid #eee; }

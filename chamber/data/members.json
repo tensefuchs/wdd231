@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Sunrise Bakery",
+    "category": "Food & Beverage",
+    "phone": "555-0199",
+    "url": "https://sunrisebakery.example.com",
+    "membership": "Gold",
+    "address": "12 Main St, Cityville"
+  },
+  {
+    "name": "Blue Sky Fitness",
+    "category": "Health & Wellness",
+    "phone": "555-2388",
+    "url": "https://blueskyfitness.example.com",
+    "membership": "Silver",
+    "address": "45 River Rd, Cityville"
+  },
+  {
+    "name": "PixelCraft Studio",
+    "category": "Design & Media",
+    "phone": "555-4411",
+    "url": "https://pixelcraft.example.com",
+    "membership": "Bronze",
+    "address": "8 Park Ave, Cityville"
+  },
+  {
+    "name": "Ocean Cleanups Inc.",
+    "category": "Environmental Services",
+    "phone": "555-6332",
+    "url": "https://oceancleanups.example.com",
+    "membership": "Gold",
+    "address": "123 Coastline Dr, Cityville"
+  },
+  {
+    "name": "GreenTech Solutions",
+    "category": "Technology",
+    "phone": "555-7754",
+    "url": "https://greentech.example.com",
+    "membership": "Silver",
+    "address": "90 Innovation Way, Cityville"
+  }
+]
