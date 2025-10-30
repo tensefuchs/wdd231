@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" aria-label="City Chamber logo">
-  <circle cx="50" cy="50" r="45" fill="#2e7d32"></circle>
-  <text x="50" y="58" text-anchor="middle" font-family="Inter, system-ui" font-size="38" fill="white">C</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" role="img" aria-label="TF logo">
+  <circle cx="50" cy="50" r="45" fill="#1e4b8f"></circle>
+  <text x="50" y="58" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="34" fill="#fff" font-weight="700">
+    TF
+  </text>
 </svg>
