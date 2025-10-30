@@ -6,9 +6,9 @@
   <title>WDD 231 • Home</title>
   <meta name="description" content="Course home page for WDD 231: Web Frontend Development.">
   <meta name="author" content="Supa-anan Fuchs">
-
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 
+  <!-- One lightweight font (OK to remove and use system fonts only) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
 <header class="site-header">
   <img src="images/logo.svg" alt="Site logo" class="logo" width="40" height="40">
   <span class="site-title">Supa-anan Fuchs</span>
+
   <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
   <nav id="primary-nav" class="nav">
     <ul>
@@ -35,29 +36,33 @@
 </header>
 
 <main>
-  <h1>WDD 231 Home</h1>
-
-  <section>
-    <h2>About This Page</h2>
-    <p>This page demonstrates responsive layout, accessible navigation, and Lighthouse-friendly structure.</p>
+  <!-- HERO (matches wireframe) -->
+  <section class="hero" aria-label="Welcome">
+    <div class="hero-text">
+      <h1>Welcome to My WDD 231 Home</h1>
+      <p>I’m Supa-anan Fuchs. This page demonstrates responsive navigation, accessible design, and a dynamic course list with filters and total credits.</p>
+    </div>
+    <div class="hero-media">
+      <!-- Keep this image small (≤125 kB) -->
+      <img src="images/profile.webp" alt="Portrait of Supa-anan Fuchs" width="240" height="240">
+    </div>
   </section>
 
-  <section>
-    <h2>Certificate Courses</h2>
-    <div class="filters">
+  <!-- COURSES (buttons + dynamic list + credits) -->
+  <section class="courses-section" aria-labelledby="courses-title">
+    <h2 id="courses-title">Certificate Courses</h2>
+
+    <div class="filters" role="toolbar" aria-label="Course filters">
       <button data-filter="all" aria-pressed="true">All Courses</button>
       <button data-filter="WDD" aria-pressed="false">WDD Courses</button>
       <button data-filter="CSE" aria-pressed="false">CSE Courses</button>
     </div>
-    <div id="courses" class="card-grid" aria-live="polite"></div>
-    <p class="total"><strong>Total Credits:</strong> <span id="creditTotal">0</span></p>
-  </section>
 
-  <section>
-    <h2>Resources</h2>
-    <ul>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1">MDN: &lt;h1&gt;</a></li>
-    </ul>
+    <div id="courses" class="card-grid" aria-live="polite"></div>
+
+    <p class="total">
+      <strong>Total Credits:</strong> <span id="creditTotal">0</span>
+    </p>
   </section>
 </main>
 
