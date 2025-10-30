@@ -8,7 +8,6 @@
   <meta name="author" content="Supa-anan Fuchs">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 
-  <!-- One lightweight font (OK to remove and use system fonts only) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -36,23 +35,19 @@
 </header>
 
 <main>
-  <!-- HERO (matches wireframe) -->
-  <section class="hero" aria-label="Welcome">
-    <div class="hero-text">
-      <h1>Welcome to My WDD 231 Home</h1>
-      <p>I’m Supa-anan Fuchs. This page demonstrates responsive navigation, accessible design, and a dynamic course list with filters and total credits.</p>
+  <section class="hero">
+    <div>
+      <h1>Welcome to my WDD 231 Home Page</h1>
+      <p>I'm Supa-anan Fuchs — excited to learn advanced web frontend skills this semester.</p>
     </div>
-    <div class="hero-media">
-      <!-- Keep this image small (≤125 kB) -->
-      <img src="images/profile.webp" alt="Portrait of Supa-anan Fuchs" width="240" height="240">
-    </div>
+
+    <img src="images/profile.webp" alt="Portrait of Supa-anan Fuchs" width="240" height="240">
   </section>
 
-  <!-- COURSES (buttons + dynamic list + credits) -->
-  <section class="courses-section" aria-labelledby="courses-title">
-    <h2 id="courses-title">Certificate Courses</h2>
+  <section>
+    <h2>Certificate Courses</h2>
 
-    <div class="filters" role="toolbar" aria-label="Course filters">
+    <div class="filters">
       <button data-filter="all" aria-pressed="true">All Courses</button>
       <button data-filter="WDD" aria-pressed="false">WDD Courses</button>
       <button data-filter="CSE" aria-pressed="false">CSE Courses</button>
@@ -69,10 +64,6 @@
 <footer>
   <p>&copy; <span id="currentyear"></span> • Supa-anan Fuchs • Düsseldorf, Germany</p>
   <p id="lastModified"></p>
-  <p class="social">
-    <a href="https://github.com/tensefuchs/wdd231" aria-label="GitHub">GitHub</a> ·
-    <a href="https://www.linkedin.com/in/supa-anan-fuchs-220138216/" aria-label="LinkedIn">LinkedIn</a>
-  </p>
 </footer>
 </body>
 </html>

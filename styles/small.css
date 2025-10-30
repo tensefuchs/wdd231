@@ -1,27 +1,41 @@
-/* Base */
-html, body { overflow-x: hidden; }
-body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+html, body { overflow-x: hidden; font-family: Inter, sans-serif; margin: 0; }
 
-/* Header + nav (mobile-first) */
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:1rem;border-bottom:1px solid #eee;background:#fff}
-.nav{display:none}
-.nav.open{display:block}
-.nav ul{list-style:none;margin:.5rem 0 0;padding:0}
-.nav a{display:block;padding:.5rem .75rem;text-decoration:none;color:#222}
-.nav a[aria-current="page"]{font-weight:700;outline:2px solid #2e7d32;outline-offset:2px;border-radius:.5rem}
+.site-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem; background:white; border-bottom:1px solid #eee;
+}
 
-/* Hero (wireframe) */
-.hero{display:grid;gap:1rem;align-items:center;padding:1rem;margin:1rem auto;background:#eef7ee;border-radius:.75rem}
-.hero img{width:140px;height:140px;border-radius:50%;display:block;margin:0 auto}
-.hero h1{margin:.25rem 0 0}
+.nav { display:none; }
+.nav.open { display:block; }
 
-/* Courses section */
-.card-grid{display:grid;grid-template-columns:1fr;gap:1rem}
-.course{border:1px solid #eee;border-radius:.75rem;padding:1rem;background:#fff}
-.course.completed{outline:2px solid #2e7d32;background:#f3fbf4}
-.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 1rem}
-.filters button{padding:.45rem .75rem;border:1px solid #ddd;border-radius:.5rem;background:#fafafa;cursor:pointer}
-.filters button[aria-pressed="true"]{background:#2e7d32;color:#fff;border-color:#2e7d32}
+.nav ul { list-style:none; padding:0; margin:.5rem 0 0; }
+.nav a { display:block; padding:.5rem; text-decoration:none; color:#222; }
 
-/* Footer */
-footer{border-top:1px solid #eee;margin-top:2rem;padding:1rem;text-align:center}
+.nav a[aria-current="page"] {
+  font-weight:700;
+  outline:2px solid #2e7d32; outline-offset:2px; border-radius:.4rem;
+}
+
+.hero {
+  padding:1rem; display:grid; gap:1rem; text-align:center;
+  background:#eef7ee; border-radius:.7rem; margin:1rem;
+}
+
+.hero img {
+  width:140px; height:140px; border-radius:50%; display:block; margin:0 auto;
+}
+
+.filters { display:flex; gap:.5rem; margin-bottom:.7rem; flex-wrap:wrap; }
+.filters button {
+  padding:.5rem .75rem; border:1px solid #ccc; border-radius:.5rem; cursor:pointer;
+  background:#fafafa;
+}
+.filters button[aria-pressed="true"] {
+  background:#2e7d32; color:white; border-color:#2e7d32;
+}
+
+.card-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
+.course {
+  border:1px solid #eee; border-radius:.7rem; padding:1rem; background:white;
+}
+.course.completed { background:#eaf9ea; outline:2px solid #2e7d32; }

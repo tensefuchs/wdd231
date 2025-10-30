@@ -1,7 +1,7 @@
-const menuBtn = document.querySelector('#menu');
-const nav = document.querySelector('#primary-nav');
+const btn = document.getElementById("menu");
+const nav = document.getElementById("primary-nav");
 
-menuBtn?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
+btn.addEventListener("click", ()=> {
+  const open = nav.classList.toggle("open");
+  btn.setAttribute("aria-expanded", open);
 });

@@ -1,47 +1,38 @@
-// scripts/courses.js
-
-// Web & Computer Programming certificate courses
-// All completed except WDD 231 (this course)
-
 const courses = [
-  { subject: "CSE", number: "CSE 110", title: "Introduction to Programming",        credits: 2, completed: true },
-  { subject: "CSE", number: "CSE 111", title: "Programming with Functions",         credits: 2, completed: true },
-  { subject: "CSE", number: "CSE 210", title: "Programming with Classes",           credits: 2, completed: true },
-  { subject: "WDD", number: "WDD 130", title: "Web Fundamentals",                   credits: 2, completed: true },
-  { subject: "WDD", number: "WDD 131", title: "Dynamic Web Fundamentals",           credits: 2, completed: true },
-  { subject: "WDD", number: "WDD 231", title: "Web Frontend Development I",         credits: 2, completed: false }
+  {subject:'CSE', number:'CSE 110', title:'Intro to Programming', credits:2, completed:true},
+  {subject:'CSE', number:'CSE 111', title:'Programming with Functions', credits:2, completed:true},
+  {subject:'CSE', number:'CSE 210', title:'OOP with Classes', credits:2, completed:true},
+  {subject:'WDD', number:'WDD 130', title:'Web Fundamentals', credits:2, completed:true},
+  {subject:'WDD', number:'WDD 131', title:'Dynamic Web Fundamentals', credits:2, completed:true},
+  {subject:'WDD', number:'WDD 231', title:'Web Frontend Development I', credits:2, completed:false}
 ];
 
-// ------- UI wiring -------
-const container = document.getElementById('courses');
-const totalOut  = document.getElementById('creditTotal');
+const container = document.getElementById("courses");
+const totalOut = document.getElementById("creditTotal");
+const buttons = document.querySelectorAll(".filters button");
 
-function render(list) {
-  container.innerHTML = '';
-  list.forEach(({ number, title, credits, completed }) => {
-    const card = document.createElement('article');
-    card.className = `course${completed ? ' completed' : ''}`;
-    card.innerHTML = `
-      <h3>${number}</h3>
-      <p>${title}</p>
-      <p><strong>${credits}</strong> credits</p>
-    `;
+function display(list) {
+  container.innerHTML = "";
+  list.forEach(c => {
+    const card = document.createElement("div");
+    card.className = `course${c.completed ? " completed" : ""}`;
+    card.innerHTML = `<h3>${c.number}</h3><p>${c.title}</p><p><strong>${c.credits}</strong> credits</p>`;
     container.append(card);
   });
-  const total = list.reduce((sum, c) => sum + Number(c.credits || 0), 0);
+
+  const total = list.reduce((sum, c)=> sum + c.credits, 0);
   totalOut.textContent = total;
 }
 
-function filterBy(kind) {
-  if (kind === 'WDD') return courses.filter(c => c.subject === 'WDD');
-  if (kind === 'CSE') return courses.filter(c => c.subject === 'CSE');
-  return courses;
-}
+buttons.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    buttons.forEach(b=>b.setAttribute("aria-pressed","false"));
+    btn.setAttribute("aria-pressed","true");
 
-render(courses);
-
-document.querySelectorAll('.filters button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    render(filterBy(btn.dataset.filter));
+    const filter = btn.dataset.filter;
+    const filtered = filter === "all" ? courses : courses.filter(c => c.subject === filter);
+    display(filtered);
   });
 });
+
+display(courses);
