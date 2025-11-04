@@ -1,21 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Directory • City Chamber</title>
+  <!-- Validator-exact metas -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>City Chamber • Member Directory</title>
+  <meta name="description" content="Business member directory for the City Chamber of Commerce.">
+  <meta name="author" content="Supa-anan Fuchs">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="City Chamber • Member Directory">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/chamber/images/logo.svg">
+  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/chamber/directory.html">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- JS -->
   <script src="scripts/nav.js" defer></script>
   <script src="scripts/date.js" defer></script>
-  <script src="scripts/members.js" defer></script>
+  <script src="scripts/directory.js" defer></script>
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="./">City Chamber</a>
+  <div class="brand-wrap">
+    <img src="images/logo.svg" alt="City Chamber logo" width="40" height="40" class="logo">
+    <a class="brand" href="./">City Chamber</a>
+  </div>
+
   <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+
   <nav id="primary-nav" class="nav">
     <ul>
-      <li><a href="./">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="directory.html" aria-current="page">Directory</a></li>
       <li><a href="discover.html">Discover</a></li>
       <li><a href="join.html">Join</a></li>
@@ -26,16 +50,22 @@
 
 <main>
   <h1>Member Directory</h1>
-  <div class="toolbar">
-    <button data-view="grid" aria-pressed="true">Grid</button>
-    <button data-view="list">List</button>
-    <input id="q" type="search" placeholder="Search businesses…" aria-label="Search businesses">
+
+  <div class="toolbar" role="group" aria-label="Directory view controls">
+    <div class="view-toggle">
+      <button id="btnGrid" aria-pressed="true" title="Grid view">Grid</button>
+      <button id="btnList" aria-pressed="false" title="List view">List</button>
+    </div>
   </div>
-  <section id="members" class="grid" aria-live="polite"></section>
+
+  <!-- Render target -->
+  <section id="members" class="grid" aria-live="polite">
+    <!-- Cards/rows injected by JS -->
+  </section>
 </main>
 
 <footer>
-  <p>&copy; <span id="currentyear"></span> City Chamber</p>
+  <p>&copy; <span id="currentyear"></span> City Chamber • WDD 231</p>
   <p id="lastModified"></p>
 </footer>
 </body>

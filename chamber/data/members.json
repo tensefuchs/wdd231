@@ -1,42 +1,82 @@
 [
   {
-    "name": "Sunrise Bakery",
-    "category": "Food & Beverage",
-    "phone": "555-0199",
-    "url": "https://sunrisebakery.example.com",
-    "membership": "Gold",
-    "address": "12 Main St, Cityville"
+    "name": "Green Leaf Cafe",
+    "category": "restaurant",
+    "address": "12 Market St, Downtown",
+    "phone": "555-201-1212",
+    "url": "https://example.com/greenleaf",
+    "image": "icons/restaurant.webp",
+    "membership": 3,
+    "tagline": "Farm-to-table brunch & bakery"
   },
   {
-    "name": "Blue Sky Fitness",
-    "category": "Health & Wellness",
-    "phone": "555-2388",
-    "url": "https://blueskyfitness.example.com",
-    "membership": "Silver",
-    "address": "45 River Rd, Cityville"
+    "name": "Riverside Printing",
+    "category": "services",
+    "address": "44 River Rd, Suite 2",
+    "phone": "555-333-9090",
+    "url": "https://example.com/riverside",
+    "image": "icons/services.webp",
+    "membership": 2,
+    "tagline": "Business cards, posters, and signage"
   },
   {
-    "name": "PixelCraft Studio",
-    "category": "Design & Media",
-    "phone": "555-4411",
-    "url": "https://pixelcraft.example.com",
-    "membership": "Bronze",
-    "address": "8 Park Ave, Cityville"
+    "name": "Harbor Hotel",
+    "category": "hotel",
+    "address": "1 Seaview Blvd",
+    "phone": "555-777-7000",
+    "url": "https://example.com/harborhotel",
+    "image": "icons/hotel.webp",
+    "membership": 1,
+    "tagline": "Comfort in the heart of downtown"
   },
   {
-    "name": "Ocean Cleanups Inc.",
-    "category": "Environmental Services",
-    "phone": "555-6332",
-    "url": "https://oceancleanups.example.com",
-    "membership": "Gold",
-    "address": "123 Coastline Dr, Cityville"
+    "name": "City Tech Repair",
+    "category": "tech",
+    "address": "9 Maple Ave",
+    "phone": "555-555-1212",
+    "url": "https://example.com/citytech",
+    "image": "icons/tech.webp",
+    "membership": 2,
+    "tagline": "Phones, tablets, laptops"
   },
   {
-    "name": "GreenTech Solutions",
-    "category": "Technology",
-    "phone": "555-7754",
-    "url": "https://greentech.example.com",
-    "membership": "Silver",
-    "address": "90 Innovation Way, Cityville"
+    "name": "Harbor Books",
+    "category": "shop",
+    "address": "17 Harbor Walk",
+    "phone": "555-444-5656",
+    "url": "https://example.com/harborbooks",
+    "image": "icons/shop.webp",
+    "membership": 1,
+    "tagline": "Independent bookstore & cafe"
+  },
+  {
+    "name": "Sunrise Landscaping",
+    "category": "services",
+    "address": "Service area: City & Valley",
+    "phone": "555-888-2323",
+    "url": "https://example.com/sunrise",
+    "image": "icons/services.webp",
+    "membership": 2,
+    "tagline": "Residential & commercial"
+  },
+  {
+    "name": "Bright Start Preschool",
+    "category": "nonprofit",
+    "address": "22 Elm St",
+    "phone": "555-111-8899",
+    "url": "https://example.com/brightstart",
+    "image": "icons/nonprofit.webp",
+    "membership": 3,
+    "tagline": "Play-based early learning"
+  },
+  {
+    "name": "City Family Clinic",
+    "category": "health",
+    "address": "410 Oak St",
+    "phone": "555-902-1200",
+    "url": "https://example.com/familyclinic",
+    "image": "icons/health.webp",
+    "membership": 2,
+    "tagline": "Pediatrics & primary care"
   }
 ]

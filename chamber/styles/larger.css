@@ -1,69 +1,10 @@
-/* chamber/styles/larger.css */
-/* Large view enhancements */
-@media (min-width: 48rem) {
-  /* Header & Nav */
-  #menu { display: none; }                /* hide hamburger */
-  .nav { display: block !important; }     /* show full nav */
-  .nav ul {
-    display: flex;
-    gap: .9rem;
-    margin: 0;
-    align-items: center;
-  }
-  .nav a {
-    padding: .4rem .6rem;
-    border-radius: .5rem;
-  }
+@media (min-width:48rem){
+  #menu{display:none}
+  .nav{display:block !important}
+  .nav ul{display:flex; gap:.9rem; margin:0; align-items:center}
 
-  /* Layout */
-  main { 
-    max-width: 1100px; 
-    margin-inline: auto; 
-  }
+  main{max-width:1100px; margin-inline:auto}
 
-  /* Hero */
-  .hero {
-    text-align: left;
-    padding: 3rem 2rem;
-  }
-  .hero h1 { font-size: 2.2rem; }
-
-  /* Cards (general) */
-  .cards { 
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Directory */
-  .toolbar { 
-    justify-content: space-between; 
-  }
-  #members.grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  /* Slightly denser card layout on wide screens */
-  #members .card { padding: 1.1rem; }
-
-  /* List rows stay full width, but align better */
-  .row {
-    grid-template-columns: 2fr 1fr 1fr auto;
-    align-items: center;
-  }
-
-  /* Discover gallery */
-  .gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Form */
-  form {
-    grid-template-columns: 1fr 1fr;
-  }
-  form .btn,
-  form button[type="submit"] {
-    grid-column: 1 / -1; /* submit spans full width */
-    justify-self: start;
-  }
-
-  /* Footer */
-  footer { font-size: 1rem; }
+  /* 3 columns grid on wide screens */
+  #members.grid{grid-template-columns:repeat(3,1fr)}
 }
