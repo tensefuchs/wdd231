@@ -17,7 +17,7 @@ btnList.addEventListener('click', () => {
   btnGrid.setAttribute('aria-pressed', 'false');
 });
 
-// Load members
+// Async/await fetch
 (async () => {
   try {
     const res = await fetch('data/members.json');
@@ -36,7 +36,7 @@ function renderMembers(list){
     card.className = 'card';
     card.innerHTML = `
       <div class="head">
-        <img class="icon" src="${m.image}" alt="${m.category} icon" width="40" height="40" loading="lazy">
+        <img class="icon" src="${safeImg(m.image)}" alt="${m.category} icon" width="40" height="40" loading="lazy" onerror="this.src='images/icons/shop.webp'">
         <div>
           <h3>${m.name}</h3>
           <span class="badge">${membershipLabel(m.membership)}</span>
@@ -52,9 +52,7 @@ function renderMembers(list){
 }
 
 function membershipLabel(level){
-  // example: 1 = Bronze, 2 = Silver, 3 = Gold
-  return level === 3 ? 'Gold Member'
-       : level === 2 ? 'Silver Member'
-       : 'Bronze Member';
+  return level === 3 ? 'Gold Member' : level === 2 ? 'Silver Member' : 'Bronze Member';
 }
-function cleanPhone(p){ return (p || '').replace(/[^0-9+]/g,''); }
+function cleanPhone(p){ return (p||'').replace(/[^0-9+]/g,''); }
+function safeImg(path){ return path.startsWith('images/') ? path : `images/${path}`; }

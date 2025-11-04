@@ -1,5 +1,5 @@
-/* Minimal normalize/reset */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-img { max-width: 100%; display: block; }
-ul { margin: 0; padding: 0; }
+/* Minimal normalize */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;display:block}
+ul{margin:0;padding:0}
