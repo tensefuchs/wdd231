@@ -5,7 +5,7 @@
     "address": "12 Market St, Downtown",
     "phone": "555-201-1212",
     "url": "https://example.com/greenleaf",
-    "image": "icons/restaurant.webp",
+    "image": "images/icons/restaurant.webp",
     "membership": 3,
     "tagline": "Farm-to-table brunch & bakery"
   },
@@ -15,7 +15,7 @@
     "address": "44 River Rd, Suite 2",
     "phone": "555-333-9090",
     "url": "https://example.com/riverside",
-    "image": "icons/services.webp",
+    "image": "images/icons/services.webp",
     "membership": 2,
     "tagline": "Business cards, posters, and signage"
   },
@@ -25,7 +25,7 @@
     "address": "1 Seaview Blvd",
     "phone": "555-777-7000",
     "url": "https://example.com/harborhotel",
-    "image": "icons/hotel.webp",
+    "image": "images/icons/hotel.webp",
     "membership": 1,
     "tagline": "Comfort in the heart of downtown"
   },
@@ -35,7 +35,7 @@
     "address": "9 Maple Ave",
     "phone": "555-555-1212",
     "url": "https://example.com/citytech",
-    "image": "icons/tech.webp",
+    "image": "images/icons/tech.webp",
     "membership": 2,
     "tagline": "Phones, tablets, laptops"
   },
@@ -45,7 +45,7 @@
     "address": "17 Harbor Walk",
     "phone": "555-444-5656",
     "url": "https://example.com/harborbooks",
-    "image": "icons/shop.webp",
+    "image": "images/icons/shop.webp",
     "membership": 1,
     "tagline": "Independent bookstore & cafe"
   },
@@ -55,7 +55,7 @@
     "address": "Service area: City & Valley",
     "phone": "555-888-2323",
     "url": "https://example.com/sunrise",
-    "image": "icons/services.webp",
+    "image": "images/icons/services.webp",
     "membership": 2,
     "tagline": "Residential & commercial"
   },
@@ -65,7 +65,7 @@
     "address": "22 Elm St",
     "phone": "555-111-8899",
     "url": "https://example.com/brightstart",
-    "image": "icons/nonprofit.webp",
+    "image": "images/icons/nonprofit.webp",
     "membership": 3,
     "tagline": "Play-based early learning"
   },
@@ -75,7 +75,7 @@
     "address": "410 Oak St",
     "phone": "555-902-1200",
     "url": "https://example.com/familyclinic",
-    "image": "icons/health.webp",
+    "image": "images/icons/health.webp",
     "membership": 2,
     "tagline": "Pediatrics & primary care"
   }
