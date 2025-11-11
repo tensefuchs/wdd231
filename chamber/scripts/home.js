@@ -1,11 +1,10 @@
-/* ========= CONFIGURE YOUR CITY + API KEY HERE ========= */
-// Use your real city and country code (or "City,CC").
-const OWM_CITY = "Provo,US";        // <-- change to your chamber city
-const OWM_UNITS = "imperial";       // "imperial"=°F, "metric"=°C
-const OWM_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // <-- put your key here
-/* ====================================================== */
+/* ========= CONFIGURE YOUR CITY + API KEY ========= */
+const OWM_CITY   = "Duesseldorf, DE";           
+const OWM_UNITS  = "metric";           
+const OWM_API_KEY = "f089b2dcdc3abdd5882b15f86ed1e13e"; 
+/* ================================================ */
 
-/* ========== WEATHER ========== */
+/* ========== WEATHER (current + 3-day) ========== */
 (async function loadWeather(){
   const weatherBox  = document.getElementById('weather');
   const forecastBox = document.getElementById('forecast');
@@ -17,8 +16,8 @@ const OWM_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // <-- put your key here
     const w = await wRes.json();
 
     const temp = Math.round(w.main.temp);
-    const desc = w.weather[0].description;
-    const icon = w.weather[0].icon; // e.g., 10d
+    const desc = w.weather?.[0]?.description ?? "weather";
+    const icon = w.weather?.[0]?.icon ?? "01d";
     const iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
 
     weatherBox.innerHTML = `
@@ -29,44 +28,41 @@ const OWM_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // <-- put your key here
       </div>
     `;
 
-    // 3-day forecast (pick around midday entries from the 5-day/3h forecast)
+    // 5-day / 3h forecast → pick ~midday for next 3 days
     const fRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(OWM_CITY)}&units=${OWM_UNITS}&appid=${OWM_API_KEY}`);
     if (!fRes.ok) throw new Error("Forecast fetch failed");
     const f = await fRes.json();
 
-    // group by date → pick closest to 12:00 (or the first of the day)
     const byDate = {};
     f.list.forEach(item=>{
       const d = new Date(item.dt*1000);
-      const key = d.toISOString().slice(0,10); // YYYY-MM-DD
+      const key = d.toISOString().slice(0,10);
       (byDate[key] ||= []).push(item);
     });
 
     const todayKey = new Date().toISOString().slice(0,10);
     const futureDays = Object.keys(byDate).filter(k => k > todayKey).sort().slice(0,3);
-
     const labels = ["Tomorrow","Day 2","Day 3"];
+
     forecastBox.innerHTML = "";
     futureDays.forEach((dayKey, idx)=>{
       const entries = byDate[dayKey];
-      // choose the one closest to 12:00
       let chosen = entries[0];
       let bestDiff = Infinity;
       entries.forEach(e=>{
         const hour = new Date(e.dt*1000).getHours();
         const diff = Math.abs(12 - hour);
-        if (diff < bestDiff) { bestDiff = diff; chosen = e; }
+        if (diff < bestDiff){ bestDiff = diff; chosen = e; }
       });
-      const t = Math.round(chosen.main.temp);
-      const dsc = chosen.weather[0].description;
-      const ic  = chosen.weather[0].icon;
+      const t   = Math.round(chosen.main.temp);
+      const dsc = chosen.weather?.[0]?.description ?? "";
+      const ic  = chosen.weather?.[0]?.icon ?? "01d";
       const icUrl = `https://openweathermap.org/img/wn/${ic}.png`;
-      const label = labels[idx] ?? dayKey;
 
       const card = document.createElement('div');
       card.className = 'day';
       card.innerHTML = `
-        <div><strong>${label}</strong></div>
+        <div><strong>${labels[idx] ?? dayKey}</strong></div>
         <img src="${icUrl}" alt="${dsc}" width="40" height="40" loading="lazy">
         <div style="text-transform:capitalize">${dsc}</div>
         <div><strong>${t}°</strong></div>
@@ -80,17 +76,14 @@ const OWM_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // <-- put your key here
   }
 })();
 
-/* ========== SPOTLIGHTS (from members.json) ========== */
+/* ========== SPOTLIGHTS (2–3 random Silver/Gold) ========== */
 (async function loadSpotlights(){
   const grid = document.getElementById('spotGrid');
   try {
     const res = await fetch('data/members.json');
     const members = await res.json();
 
-    // Filter to Silver (2) or Gold (3)
-    const premium = members.filter(m => Number(m.membership) >= 2);
-
-    // Randomly choose 2 or 3 members
+    const premium = members.filter(m => Number(m.membership) >= 2); // Silver (2) or Gold (3)
     const count = 2 + Math.floor(Math.random()*2); // 2 or 3
     const picks = shuffle(premium).slice(0, count);
 
@@ -120,9 +113,7 @@ const OWM_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // <-- put your key here
 })();
 
 function shuffle(arr){
-  return arr.map(a=>({sort:Math.random(),value:a}))
-            .sort((a,b)=>a.sort-b.sort)
-            .map(o=>o.value);
+  return arr.map(a=>({r:Math.random(),v:a})).sort((a,b)=>a.r-b.r).map(o=>o.v);
 }
 function imgPath(p){ return p?.startsWith('images/') ? p : `images/${p}`; }
 function cleanPhone(p){ return (p||'').replace(/[^0-9+]/g,''); }
