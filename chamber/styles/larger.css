@@ -5,6 +5,17 @@
 
   main{max-width:1100px; margin-inline:auto}
 
-  /* 3 columns grid on wide screens */
+  /* W02 directory grid */
   #members.grid{grid-template-columns:repeat(3,1fr)}
+
+  /* W03 home layout */
+  .hero{
+    grid-template-columns: 1.2fr 1fr; gap:2rem; padding:2rem;
+  }
+  .info-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .spot-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
