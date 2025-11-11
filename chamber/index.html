@@ -1,37 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Required metas -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Chamber of Commerce</title>
-  <meta name="description" content="City Chamber of Commerce — promoting local business and community growth.">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>City Chamber • Home</title>
+  <meta name="description" content="Welcome to the City Chamber of Commerce—events, weather, and member spotlights.">
+  <meta name="author" content="Supa-anan Fuchs">
 
-  <!-- Styles -->
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="City Chamber • Home">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/chamber/images/logo.svg">
+  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/chamber/index.html">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
 
-  <!-- Scripts -->
+  <!-- JS -->
   <script src="scripts/nav.js" defer></script>
   <script src="scripts/date.js" defer></script>
+  <script src="scripts/home.js" defer></script>
 </head>
 <body>
-
 <header class="site-header">
   <div class="brand-wrap">
     <img src="images/logo.svg" alt="City Chamber logo" width="40" height="40" class="logo">
-    <a class="brand" href="./">City Chamber</a>
+    <a class="brand" href="./" aria-current="page">City Chamber</a>
   </div>
 
   <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
 
   <nav id="primary-nav" class="nav">
     <ul>
-      <li><a href="./" aria-current="page">Home</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="directory.html">Directory</a></li>
       <li><a href="discover.html">Discover</a></li>
       <li><a href="join.html">Join</a></li>
@@ -41,26 +49,64 @@
 </header>
 
 <main>
-  <section class="hero">
-    <h1>Welcome to the City Chamber</h1>
-    <p>Connecting local businesses, supporting innovation, and strengthening the community.</p>
-    <a class="btn" href="join.html">Become a Member</a>
+  <!-- HERO + CTA -->
+  <section class="hero" aria-label="Welcome">
+    <div class="hero-text">
+      <h1>Grow with the City Chamber</h1>
+      <p>Connect with local businesses, discover events, and find resources to help our community thrive.</p>
+      <p><a class="btn-cta" href="join.html">Join the Chamber</a></p>
+    </div>
+    <div class="hero-media">
+      <!-- Keep this small/optimized (~150–300 KB .webp). Replace with your photo -->
+      <img src="images/hero.webp" alt="City skyline and commerce community" width="800" height="450" loading="lazy">
+    </div>
   </section>
 
-  <section>
-    <h2>Upcoming Events</h2>
-    <ul class="cards">
-      <li><strong>Business Breakfast</strong><br>First Monday of every month</li>
-      <li><strong>Women in Leadership</strong><br>Quarterly networking brunch</li>
-      <li><strong>Tech & Innovation Fair</strong><br>Annual showcase and hiring event</li>
-    </ul>
+  <!-- EVENTS + WEATHER SIDE BY SIDE ON DESKTOP -->
+  <section class="info-grid" aria-label="Current info">
+    <article class="panel">
+      <h2 class="panel-title">Current Events</h2>
+      <div class="panel-body">
+        <!-- You can later load this dynamically; static for now -->
+        <ul class="events">
+          <li>
+            <strong>Monthly Networking Breakfast</strong><br>
+            <span>Tue 9:00 AM • Harbor Cafe</span>
+          </li>
+          <li>
+            <strong>Small Business Grants Q&A</strong><br>
+            <span>Thu 6:00 PM • City Library</span>
+          </li>
+          <li>
+            <strong>Fall Market Vendor Meeting</strong><br>
+            <span>Sat 10:30 AM • Chamber Office</span>
+          </li>
+        </ul>
+        <p class="more"><a href="discover.html">See all events →</a></p>
+      </div>
+    </article>
+
+    <article class="panel">
+      <h2 class="panel-title">Local Weather</h2>
+      <div class="panel-body">
+        <div id="weather" class="weather" aria-live="polite">
+          <p>Loading weather…</p>
+        </div>
+        <div id="forecast" class="forecast" aria-live="polite"></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- SPOTLIGHTS -->
+  <section class="spotlights" aria-label="Member spotlights">
+    <h2 class="bar">Member Spotlights</h2>
+    <div id="spotGrid" class="spot-grid" aria-live="polite"></div>
   </section>
 </main>
 
 <footer>
-  <p>&copy; <span id="currentyear"></span> City Chamber</p>
+  <p>&copy; <span id="currentyear"></span> City Chamber • WDD 231</p>
   <p id="lastModified"></p>
 </footer>
-
 </body>
 </html>
