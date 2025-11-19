@@ -19,3 +19,12 @@
     grid-template-columns:repeat(3,1fr);
   }
 }
+@media (min-width:48rem){
+  .join-layout{
+    grid-template-columns: 1.3fr .9fr; /* form left, levels right */
+    align-items:start;
+  }
+  .level-cards{
+    grid-template-columns: 1fr;
+  }
+}

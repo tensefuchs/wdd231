@@ -113,3 +113,120 @@ footer{
   font-size:.75rem; background:#eef7ee; color:#195a1c; border:1px solid #cfe6d1;
   padding:.1rem .5rem; border-radius:999px;
 }
+
+/* --- JOIN PAGE layout --- */
+.join-layout{
+  padding:1rem;
+  display:grid;
+  gap:1rem;
+}
+
+.join-form{
+  display:grid;
+  gap:.85rem;
+}
+.join-form label{
+  display:grid;
+  gap:.35rem;
+}
+.join-form input,
+.join-form select,
+.join-form textarea{
+  padding:.6rem .7rem;
+  border:1px solid #dcdcdc;
+  border-radius:.5rem;
+  font:inherit;
+}
+.join-form input:focus,
+.join-form select:focus,
+.join-form textarea:focus{
+  outline:2px solid #2e7d32;
+  outline-offset:1px;
+}
+
+.panel{
+  border:1px solid #e5e5e5;
+  border-radius:.7rem;
+  padding:1rem;
+  background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.06);
+}
+.panel-title{
+  margin:0 0 .75rem 0;
+}
+
+/* Membership cards with entry animation */
+.level-cards{
+  display:grid;
+  gap:1rem;
+}
+.level-card{
+  border:1px solid #e6e6e6;
+  border-radius:.7rem;
+  padding:1rem;
+  background:#fafafa;
+  box-shadow:0 1px 3px rgba(0,0,0,.06);
+  animation:fadeUp .6s ease forwards;
+  opacity:0;
+  transform:translateY(8px);
+  animation-delay:var(--delay, 0s);
+}
+@keyframes fadeUp{
+  to { opacity:1; transform:translateY(0); }
+}
+.link-btn{
+  appearance:none;
+  background:none;
+  border:none;
+  color:#2e7d32;
+  text-decoration:underline;
+  padding:0;
+  cursor:pointer;
+}
+.link-btn:hover,
+.link-btn:focus{
+  color:#205924;
+  outline: none;
+}
+
+/* Accessible modals */
+.modal{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:rgba(0,0,0,.4);
+  padding:1rem;
+  z-index:50;
+}
+.modal[hidden]{ display:none; }
+.modal-box{
+  max-width:32rem;
+  width:min(100%, 32rem);
+  background:#fff;
+  border-radius:.7rem;
+  padding:1rem 1.2rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+.close-modal{
+  margin-top:.75rem;
+  padding:.5rem .9rem;
+  border-radius:.5rem;
+  border:1px solid #ddd;
+  background:#f7f7f7;
+  cursor:pointer;
+}
+.close-modal:hover{ background:#eee; }
+
+/* Thank you page list */
+.data-list{
+  list-style:none;
+  padding:0; margin:0;
+  display:grid; gap:.5rem;
+}
+.data-list li{
+  background:#f7f7f7;
+  border:1px solid #e5e5e5;
+  border-radius:.5rem;
+  padding:.5rem .75rem;
+}

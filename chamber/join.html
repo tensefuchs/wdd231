@@ -1,20 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Join • City Chamber</title>
+  <!-- Required metas -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>City Chamber • Join</title>
+  <meta name="description" content="Apply to join the City Chamber of Commerce.">
+  <meta name="author" content="Supa-anan Fuchs">
+
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="City Chamber • Join">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/chamber/images/logo.svg">
+  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/chamber/join.html">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- JS -->
   <script src="scripts/nav.js" defer></script>
   <script src="scripts/date.js" defer></script>
+  <script src="scripts/join.js" defer></script>
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="./">City Chamber</a>
+  <div class="brand-wrap">
+    <img src="images/logo.svg" alt="City Chamber logo" width="40" height="40" class="logo">
+    <a class="brand" href="./">City Chamber</a>
+  </div>
+
   <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+
   <nav id="primary-nav" class="nav">
     <ul>
-      <li><a href="./">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="directory.html">Directory</a></li>
       <li><a href="discover.html">Discover</a></li>
       <li><a href="join.html" aria-current="page">Join</a></li>
@@ -23,26 +47,196 @@
   </nav>
 </header>
 
-<main>
+<main class="join-layout">
   <h1>Join the Chamber</h1>
-  <form class="card" method="get" action="thankyou.html">
-    <label>Business Name<input name="business" required></label>
-    <label>Contact Name<input name="contact" required></label>
-    <label>Email<input type="email" name="email" required></label>
-    <label>Phone<input type="tel" name="phone"></label>
-    <label>Membership
-      <select name="membership" required>
-        <option value="bronze">Bronze</option>
-        <option value="silver">Silver</option>
-        <option value="gold">Gold</option>
-      </select>
-    </label>
-    <button class="btn" type="submit">Apply</button>
-  </form>
+
+  <!-- APPLICATION FORM -->
+  <section class="panel">
+    <h2 class="panel-title">Membership Application</h2>
+
+    <form class="join-form" method="get" action="thankyou.html" autocomplete="on" novalidate>
+      <!-- First Name (required) -->
+      <label title="Given name">
+        <span>First Name *</span>
+        <input
+          type="text"
+          name="first"
+          required
+          autocomplete="given-name"
+          title="Please enter your first name">
+      </label>
+
+      <!-- Last Name (required) -->
+      <label title="Family name">
+        <span>Last Name *</span>
+        <input
+          type="text"
+          name="last"
+          required
+          autocomplete="family-name"
+          title="Please enter your last name">
+      </label>
+
+      <!-- Organizational Title (alpha, hyphen, space, min 7) -->
+      <label title="Your title within the organization (min 7 letters, spaces, or hyphens)">
+        <span>Organization Title</span>
+        <input
+          type="text"
+          name="orgtitle"
+          autocomplete="organization-title"
+          pattern="^[A-Za-z\- ]{7,}$"
+          title="Letters, spaces, and hyphens only; at least 7 characters. (e.g., Senior Manager)">
+      </label>
+
+      <!-- Email (required) -->
+      <label title="Email address">
+        <span>Email *</span>
+        <input
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="name@example.com"
+          title="Please enter a valid email address">
+      </label>
+
+      <!-- Mobile (required) -->
+      <label title="Mobile phone number">
+        <span>Mobile Phone *</span>
+        <input
+          type="tel"
+          name="mobile"
+          required
+          autocomplete="tel"
+          inputmode="tel"
+          title="Please enter your mobile phone number">
+      </label>
+
+      <!-- Organization Name (required) -->
+      <label title="Business or organization legal name">
+        <span>Organization Name *</span>
+        <input
+          type="text"
+          name="organization"
+          required
+          autocomplete="organization"
+          title="Please enter your business or organization name">
+      </label>
+
+      <!-- Membership Level (np/bronze/silver/gold) -->
+      <label title="Choose a membership level">
+        <span>Membership Level</span>
+        <select name="membership" title="Select membership level">
+          <option value="np">NP (Non-Profit) — free</option>
+          <option value="bronze">Bronze</option>
+          <option value="silver">Silver</option>
+          <option value="gold">Gold</option>
+        </select>
+      </label>
+
+      <!-- Organization Description -->
+      <label title="Describe your business/organization">
+        <span>Organization Description</span>
+        <textarea
+          name="description"
+          rows="4"
+          title="Brief description of your organization"></textarea>
+      </label>
+
+      <!-- Hidden timestamp -->
+      <input type="hidden" name="timestamp" id="timestamp">
+
+      <button type="submit" class="btn-cta">Submit Application</button>
+    </form>
+  </section>
+
+  <!-- MEMBERSHIP CARDS + MODALS -->
+  <aside class="panel levels">
+    <h2 class="panel-title">Membership Levels</h2>
+
+    <div class="level-cards">
+      <!-- NP -->
+      <article class="level-card" style="--delay:0s">
+        <h3>NP Membership</h3>
+        <p>For nonprofit organizations. No fee.</p>
+        <p><button class="link-btn" data-modal="modal-np" aria-haspopup="dialog">Benefits & Details</button></p>
+      </article>
+
+      <!-- Bronze -->
+      <article class="level-card" style="--delay:.1s">
+        <h3>Bronze Membership</h3>
+        <p>Entry-level exposure and events access.</p>
+        <p><button class="link-btn" data-modal="modal-bronze" aria-haspopup="dialog">Benefits & Details</button></p>
+      </article>
+
+      <!-- Silver -->
+      <article class="level-card" style="--delay:.2s">
+        <h3>Silver Membership</h3>
+        <p>Enhanced visibility and training discounts.</p>
+        <p><button class="link-btn" data-modal="modal-silver" aria-haspopup="dialog">Benefits & Details</button></p>
+      </article>
+
+      <!-- Gold -->
+      <article class="level-card" style="--delay:.3s">
+        <h3>Gold Membership</h3>
+        <p>Premium promotion and sponsorship options.</p>
+        <p><button class="link-btn" data-modal="modal-gold" aria-haspopup="dialog">Benefits & Details</button></p>
+      </article>
+    </div>
+  </aside>
+
+  <!-- MODALS (accessible) -->
+  <div id="modal-np" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-np-title" hidden>
+    <div class="modal-box" role="document">
+      <h3 id="modal-np-title">NP Membership Benefits</h3>
+      <ul>
+        <li>Free listing in directory</li>
+        <li>Community event participation</li>
+        <li>Nonprofit training sessions</li>
+      </ul>
+      <button class="close-modal" data-close>Close</button>
+    </div>
+  </div>
+
+  <div id="modal-bronze" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-bronze-title" hidden>
+    <div class="modal-box" role="document">
+      <h3 id="modal-bronze-title">Bronze Membership Benefits</h3>
+      <ul>
+        <li>Directory listing + logo</li>
+        <li>Member newsletter highlights</li>
+        <li>10% event discount</li>
+      </ul>
+      <button class="close-modal" data-close>Close</button>
+    </div>
+  </div>
+
+  <div id="modal-silver" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-silver-title" hidden>
+    <div class="modal-box" role="document">
+      <h3 id="modal-silver-title">Silver Membership Benefits</h3>
+      <ul>
+        <li>Homepage spotlight eligibility</li>
+        <li>Priority vendor booths</li>
+        <li>20% event discount</li>
+      </ul>
+      <button class="close-modal" data-close>Close</button>
+    </div>
+  </div>
+
+  <div id="modal-gold" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-gold-title" hidden>
+    <div class="modal-box" role="document">
+      <h3 id="modal-gold-title">Gold Membership Benefits</h3>
+      <ul>
+        <li>Premium spotlights & ads</li>
+        <li>Event sponsorships</li>
+        <li>30% event discount</li>
+      </ul>
+      <button class="close-modal" data-close>Close</button>
+    </div>
+  </div>
 </main>
 
 <footer>
-  <p>&copy; <span id="currentyear"></span> City Chamber</p>
+  <p>&copy; <span id="currentyear"></span> City Chamber • WDD 231</p>
   <p id="lastModified"></p>
 </footer>
 </body>
