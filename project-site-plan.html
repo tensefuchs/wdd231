@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CuddleCloud – Jellycat Wishlist & Collector Hub Site Plan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Basic CSS for the site plan -->
+  <style>
+    :root {
+      --primary-bg: #fff7fb;
+      --primary-text: #2f243a;
+      --accent: #ffb6c1;
+      --accent-dark: #c66a86;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+    }
+
+    header, main, footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+    }
+
+    header {
+      border-bottom: 4px solid var(--accent);
+    }
+
+    h1, h2, h3 {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--accent-dark);
+      margin-top: 0;
+    }
+
+    h2 {
+      border-left: 5px solid var(--accent);
+      padding-left: 0.5rem;
+    }
+
+    .section-block {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .color-samples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background-color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .sample-box {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.15);
+    }
+
+    .sample-primary-bg { background-color: var(--primary-bg); }
+    .sample-primary-text { background-color: var(--primary-text); }
+    .sample-accent { background-color: var(--accent); }
+
+    .wireframe-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 700px) {
+      .wireframe-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .wireframe {
+      border: 2px dashed var(--accent-dark);
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      background-color: #fff;
+      font-size: 0.85rem;
+    }
+
+    .wf-box {
+      border: 1px solid rgba(0,0,0,0.25);
+      border-radius: 0.5rem;
+      padding: 0.3rem;
+      margin: 0.35rem 0;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    .wf-box.header { background-color: var(--accent); }
+    .wf-box.hero { background-color: #ffeaf2; }
+    .wf-box.section { background-color: #fdf6ff; }
+    .wf-box.footer { background-color: #f3e7f9; }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #7b6c8a;
+      padding-bottom: 2rem;
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+  <h1>Site Plan: CuddleCloud – Jellycat Wishlist & Collector Hub</h1>
+  <p>This document outlines the plan for the WDD 231 Individual Project.</p>
+</header>
+
+<main>
+
+  <!-- Site Name -->
+  <section>
+    <h2>Site Name</h2>
+    <div class="section-block">
+      <p><strong>CuddleCloud – Jellycat Wishlist & Collector Hub</strong></p>
+      <p>
+        The name “CuddleCloud” reflects the softness of Jellycat plushies and the idea of keeping
+        “wishlist dreams in the cloud.” It is friendly, memorable, and perfectly fits the topic of a
+        collector-focused website.
+      </p>
+    </div>
+  </section>
+
+  <!-- Site Purpose -->
+  <section>
+    <h2>Site Purpose</h2>
+    <div class="section-block">
+      <p>The purpose of this site is to:</p>
+      <ul>
+        <li>Provide Jellycat fans with curated plush information and categories.</li>
+        <li>Allow users to create and manage a wishlist with interactive UI features.</li>
+        <li>Help collectors track which Jellycats they own.</li>
+        <li>Share care, cleaning, and display tips for collectors.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section>
+    <h2>Scenarios</h2>
+    <div class="section-block">
+      <ul>
+        <li>“Which Jellycats are currently on my wishlist, and how can I organize them?”</li>
+        <li>“How do I track which Jellycats I already own so I don’t buy duplicates?”</li>
+        <li>“How do I prioritize which Jellycats to buy next?”</li>
+        <li>“How do I clean and care for my Jellycat plushies?”</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Color Scheme -->
+  <section>
+    <h2>Color Scheme</h2>
+    <div class="section-block">
+      <p>Soft pastel colors inspired by Jellycat themes:</p>
+
+      <div class="color-samples">
+        <div class="color-swatch">
+          <span class="sample-box sample-primary-bg"></span>
+          <div><strong>#fff7fb</strong><br>Primary background</div>
+        </div>
+
+        <div class="color-swatch">
+          <span class="sample-box sample-primary-text"></span>
+          <div><strong>#2f243a</strong><br>Primary text color</div>
+        </div>
+
+        <div class="color-swatch">
+          <span class="sample-box sample-accent"></span>
+          <div><strong>#ffb6c1</strong><br>Accent color for buttons/headings</div>
+        </div>
+      </div>
+
+      <p>The document uses this color palette in backgrounds, headings, borders, and samples.</p>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section>
+    <h2>Typography</h2>
+    <div class="section-block">
+      <ul>
+        <li><strong>Headings:</strong> Trebuchet MS, Segoe UI — used for all section titles.</li>
+        <li><strong>Body text:</strong> System UI font stack — used for readability and consistency.</li>
+      </ul>
+      <p>This site plan document already uses these fonts.</p>
+    </div>
+  </section>
+
+  <!-- Wireframe -->
+  <section>
+    <h2>Wireframe – Home Page</h2>
+    <div class="section-block">
+      <p>Wireframes for mobile and desktop layouts:</p>
+
+      <div class="wireframe-wrapper">
+
+        <!-- Mobile Wireframe -->
+        <div class="wireframe">
+          <h3>Mobile View</h3>
+          <div class="wf-box header">Header</div>
+          <div class="wf-box hero">Hero Section</div>
+          <div class="wf-box section">Featured Categories</div>
+          <div class="wf-box section">Wishlist Explanation</div>
+          <div class="wf-box section">Collector Tips Preview</div>
+          <div class="wf-box footer">Footer</div>
+        </div>
+
+        <!-- Desktop Wireframe -->
+        <div class="wireframe">
+          <h3>Desktop View</h3>
+          <div class="wf-box header">Header with Nav</div>
+          <div class="wf-box hero">Two-Column Hero Layout</div>
+          <div class="wf-box section">Category Grid</div>
+          <div class="wf-box section">Wishlist Steps</div>
+          <div class="wf-box section">Collector Tips Row</div>
+          <div class="wf-box footer">Footer</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>WDD 231 – Individual Project Site Plan</p>
+</footer>
+
+</body>
+</html>
