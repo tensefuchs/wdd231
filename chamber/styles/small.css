@@ -230,3 +230,103 @@ footer{
   border-radius:.5rem;
   padding:.5rem .75rem;
 }
+/* --- DISCOVER PAGE --- */
+.discover-main{
+  padding:1rem;
+}
+.discover-main h1{
+  margin-top:.3rem;
+  margin-bottom:1rem;
+}
+
+/* grid with named areas for small screens (one column) */
+.discover-grid{
+  display:grid;
+  gap:1rem;
+  grid-template-columns:1fr;
+  grid-template-areas:
+    "msg"
+    "a"
+    "b"
+    "c"
+    "d"
+    "e"
+    "f"
+    "g"
+    "h";
+}
+
+/* visit message card */
+.visit-message{
+  grid-area: msg;
+}
+
+/* general card styling */
+.place{
+  display:grid;
+  gap:.5rem;
+}
+.place h2{
+  margin:.1rem 0 .25rem;
+  font-size:1.1rem;
+}
+.place figure{
+  margin:0;
+}
+.place figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:.4rem;
+}
+.place address{
+  font-style:normal;
+  font-size:.9rem;
+  color:#555;
+}
+
+/* named grid areas for the 8 cards */
+.place1{ grid-area:a; }
+.place2{ grid-area:b; }
+.place3{ grid-area:c; }
+.place4{ grid-area:d; }
+.place5{ grid-area:e; }
+.place6{ grid-area:f; }
+.place7{ grid-area:g; }
+.place8{ grid-area:h; }
+
+/* subtle button style */
+.btn-ghost{
+  align-self:flex-start;
+  padding:.45rem .9rem;
+  border-radius:.5rem;
+  border:1px solid #ccc;
+  background:#fafafa;
+  cursor:pointer;
+  font:inherit;
+}
+.btn-ghost:hover,
+.btn-ghost:focus{
+  background:#f0f0f0;
+}
+
+/* --- medium screens: 2-column layout + image hover (no hover on small) --- */
+@media (min-width:40rem) and (max-width:63.99rem){
+  .discover-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "msg msg"
+      "a b"
+      "c d"
+      "e f"
+      "g h";
+  }
+
+  .place figure img{
+    transition: transform .25s ease, filter .25s ease;
+  }
+  .place figure:hover img{
+    transform: scale(1.03);
+    filter: brightness(1.05);
+  }
+}

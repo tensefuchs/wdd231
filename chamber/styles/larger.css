@@ -28,3 +28,22 @@
     grid-template-columns: 1fr;
   }
 }
+/* large screens: 3-column mosaic layout + stronger hover */
+@media (min-width:64rem){
+  .discover-grid{
+    grid-template-columns:2fr 1fr 1fr;
+    grid-template-areas:
+      "msg msg msg"
+      "a b c"
+      "d e f"
+      "g h h";
+  }
+
+  .place figure img{
+    transition: transform .25s ease, filter .25s ease;
+  }
+  .place figure:hover img{
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
