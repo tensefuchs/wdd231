@@ -1,58 +1,100 @@
-// View toggle
-const membersEl = document.getElementById('members');
-const btnGrid   = document.getElementById('btnGrid');
-const btnList   = document.getElementById('btnList');
+// chamber/scripts/directory.js
 
-btnGrid.addEventListener('click', () => {
-  membersEl.classList.remove('list');
-  membersEl.classList.add('grid');
-  btnGrid.setAttribute('aria-pressed', 'true');
-  btnList.setAttribute('aria-pressed', 'false');
+const container = document.querySelector("#memberContainer");
+const gridBtn = document.querySelector("#gridView");
+const listBtn = document.querySelector("#listView");
+
+// Fetch and render members on page load
+document.addEventListener("DOMContentLoaded", () => {
+  if (!container) {
+    console.warn("Member container (#memberContainer) not found.");
+    return;
+  }
+  loadMembers();
+  setupViewToggle();
 });
 
-btnList.addEventListener('click', () => {
-  membersEl.classList.remove('grid');
-  membersEl.classList.add('list');
-  btnList.setAttribute('aria-pressed', 'true');
-  btnGrid.setAttribute('aria-pressed', 'false');
-});
-
-// Async/await fetch
-(async () => {
+/**
+ * Fetch member data from JSON file and render as cards.
+ */
+async function loadMembers() {
   try {
-    const res = await fetch('data/members.json');
-    const members = await res.json();
+    const response = await fetch("data/members.json"); // path is relative to directory.html
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    const members = await response.json();
     renderMembers(members);
   } catch (err) {
-    console.error(err);
-    membersEl.innerHTML = '<p>Unable to load directory at this time.</p>';
+    console.error("Error loading members:", err);
+    container.innerHTML = `<p class="error">Unable to load directory at this time.</p>`;
   }
-})();
+}
 
-function renderMembers(list){
-  membersEl.innerHTML = '';
-  list.forEach(m => {
-    const card = document.createElement('article');
-    card.className = 'card';
+/**
+ * Render member cards inside the container.
+ * @param {Array} members
+ */
+function renderMembers(members) {
+  container.innerHTML = "";
+
+  members.forEach((member) => {
+    const card = document.createElement("article");
+    card.classList.add("member-card");
+
     card.innerHTML = `
-      <div class="head">
-        <img class="icon" src="${safeImg(m.image)}" alt="${m.category} icon" width="40" height="40" loading="lazy" onerror="this.src='images/icons/shop.webp'">
-        <div>
-          <h3>${m.name}</h3>
-          <span class="badge">${membershipLabel(m.membership)}</span>
-        </div>
+      <figure class="member-logo">
+        <img src="${escapeAttr(member.image)}"
+             alt="${escapeAttr(member.name)} logo"
+             loading="lazy">
+      </figure>
+      <div class="member-info">
+        <h2>${escapeHtml(member.name)}</h2>
+        <p class="member-address">${escapeHtml(member.address)}</p>
+        <p class="member-phone">${escapeHtml(member.phone)}</p>
+        <p class="member-membership">Membership: <strong>${escapeHtml(member.membership)}</strong></p>
+        <p class="member-site">
+          <a href="${escapeAttr(member.website)}" target="_blank" rel="noopener">Visit Website</a>
+        </p>
       </div>
-      <p>${m.tagline ?? ''}</p>
-      <p><strong>Phone:</strong> <a href="tel:${cleanPhone(m.phone)}">${m.phone}</a></p>
-      <p><strong>Address:</strong> ${m.address}</p>
-      <p><a href="${m.url}" target="_blank" rel="noopener">Visit website</a></p>
     `;
-    membersEl.append(card);
+
+    container.append(card);
   });
 }
 
-function membershipLabel(level){
-  return level === 3 ? 'Gold Member' : level === 2 ? 'Silver Member' : 'Bronze Member';
+/**
+ * Setup grid/list view toggle buttons.
+ */
+function setupViewToggle() {
+  if (!gridBtn || !listBtn || !container) return;
+
+  gridBtn.addEventListener("click", () => {
+    container.classList.add("grid-view");
+    container.classList.remove("list-view");
+    gridBtn.setAttribute("aria-pressed", "true");
+    listBtn.setAttribute("aria-pressed", "false");
+  });
+
+  listBtn.addEventListener("click", () => {
+    container.classList.add("list-view");
+    container.classList.remove("grid-view");
+    listBtn.setAttribute("aria-pressed", "true");
+    gridBtn.setAttribute("aria-pressed", "false");
+  });
 }
-function cleanPhone(p){ return (p||'').replace(/[^0-9+]/g,''); }
-function safeImg(path){ return path.startsWith('images/') ? path : `images/${path}`; }
+
+/* --- escaping helpers --- */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function escapeAttr(str) {
+  return String(str)
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
+}
