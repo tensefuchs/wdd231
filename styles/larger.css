@@ -1,30 +1,83 @@
-/* Desktop / larger view */
-@media (min-width:48rem){
-  #menu{display:none}
-  .nav{display:block !important}
-  .nav ul{display:flex;gap:.75rem;margin:0}
-  .nav a{border-radius:.4rem}
+/* =========================
+   Navigation (Desktop)
+========================= */
 
-  main{max-width:1100px;margin-inline:auto}
-
-  /* About: two columns */
-  .about{
-    grid-template-columns:2fr 1fr;
-    padding:0;
-    margin:0 1rem;
+@media (min-width: 40rem) {
+  #menu {
+    display: none;
   }
-  .photo-wrap img{width:320px;height:320px}
 
-  /* Course list: three columns look */
-  .course-list{
-    grid-template-columns:repeat(3,1fr);
+  .nav {
+    position: static;
+    display: block;
+    border-top: none;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav li {
+    border: none;
+  }
+
+  .nav a {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  .nav a:hover {
+    background: #e0f2f1;
   }
 }
-@media (min-width:48rem){
-  .members.grid-view{
-    grid-template-columns:repeat(3, minmax(0,1fr));
+
+/* =========================
+   Directory Grid (Desktop)
+========================= */
+
+@media (min-width: 48rem) {
+  .members.grid-view {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .members.list-view{
-    grid-template-columns:1fr;
+
+  .members.list-view .member-card {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+/* =========================
+   Discover Grid Areas (Desktop)
+========================= */
+
+@media (min-width: 40rem) {
+  .discover-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "msg msg msg msg"
+      "a a b b"
+      "c c d d"
+      "e e f f"
+      "g g h h";
+  }
+
+  .place figure img {
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .place figure:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
+
+@media (min-width: 64rem) {
+  .discover-grid {
+    grid-template-areas:
+      "msg msg a a"
+      "b b c c"
+      "d d e e"
+      "f f g g"
+      "h h . .";
   }
 }
