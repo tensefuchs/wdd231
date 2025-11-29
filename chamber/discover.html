@@ -1,21 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Discover • City Chamber</title>
+  <!-- Required metas -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>City Chamber • Discover</title>
+  <meta name="description" content="Discover local highlights, culture, and attractions in our chamber area.">
+  <meta name="author" content="Supa-anan Fuchs">
+
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- JS -->
   <script src="scripts/nav.js" defer></script>
   <script src="scripts/date.js" defer></script>
-  <script src="scripts/lazyload.js" defer></script>
+  <!-- module for JSON import + last visit -->
+  <script type="module" src="scripts/discover.mjs"></script>
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="./">City Chamber</a>
+  <div class="brand-wrap">
+    <img src="images/logo.svg" alt="City Chamber logo" width="40" height="40" class="logo">
+    <a class="brand" href="./">City Chamber</a>
+  </div>
+
   <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+
   <nav id="primary-nav" class="nav">
     <ul>
-      <li><a href="./">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="directory.html">Directory</a></li>
       <li><a href="discover.html" aria-current="page">Discover</a></li>
       <li><a href="join.html">Join</a></li>
@@ -24,30 +42,20 @@
   </nav>
 </header>
 
-<main>
-  <h1>Discover Our Community</h1>
+<main class="discover-main">
+  <h1>Discover Our Area</h1>
 
-  <section>
-    <h2>Photo Highlights</h2>
-    <div class="gallery">
-      <img data-src="images/market.webp" alt="Weekend market" width="600" height="400" loading="lazy">
-      <img data-src="images/river.webp" alt="Riverwalk" width="600" height="400" loading="lazy">
-      <img data-src="images/festival.webp" alt="City festival" width="600" height="400" loading="lazy">
-    </div>
-  </section>
-
-  <section>
-    <h2>Fast Facts</h2>
-    <ul class="cards">
-      <li><strong>Population:</strong> 74,000</li>
-      <li><strong>Median Business Age:</strong> 8 years</li>
-      <li><strong>Main Industries:</strong> Food, Design, Fitness</li>
-    </ul>
+  <!-- Grid container: first child is visit message, then 8 cards -->
+  <section class="discover-grid" id="discoverGrid">
+    <section class="visit-message panel" id="visitMessage" aria-live="polite">
+      <!-- Filled by JS (localStorage last visit) -->
+    </section>
+    <!-- Cards will be injected here by discover.mjs -->
   </section>
 </main>
 
 <footer>
-  <p>&copy; <span id="currentyear"></span> City Chamber</p>
+  <p>&copy; <span id="currentyear"></span> City Chamber • WDD 231</p>
   <p id="lastModified"></p>
 </footer>
 </body>
