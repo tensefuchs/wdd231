@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 async function loadMembers() {
   try {
-    const response = await fetch("data/members.json"); // path is relative to directory.html
+    const response = await fetch("data/members.json"); // relative to directory.html
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
@@ -53,9 +53,13 @@ function renderMembers(members) {
         <h2>${escapeHtml(member.name)}</h2>
         <p class="member-address">${escapeHtml(member.address)}</p>
         <p class="member-phone">${escapeHtml(member.phone)}</p>
-        <p class="member-membership">Membership: <strong>${escapeHtml(member.membership)}</strong></p>
+        <p class="member-membership">Membership:
+          <strong>${escapeHtml(member.membership)}</strong>
+        </p>
         <p class="member-site">
-          <a href="${escapeAttr(member.website)}" target="_blank" rel="noopener">Visit Website</a>
+          <a href="${escapeAttr(member.website)}" target="_blank" rel="noopener">
+            Visit Website
+          </a>
         </p>
       </div>
     `;

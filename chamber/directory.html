@@ -6,17 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>City Chamber • Member Directory</title>
-  <meta name="description" content="Business member directory for the City Chamber of Commerce.">
+  <meta name="description" content="Member directory for the City Chamber of Commerce.">
   <meta name="author" content="Supa-anan Fuchs">
 
-  <!-- Favicon -->
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="City Chamber • Member Directory">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/chamber/images/logo.svg">
-  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/chamber/directory.html">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
@@ -48,18 +41,18 @@
   </nav>
 </header>
 
-<main>
+<main class="directory-main">
   <h1>Member Directory</h1>
 
-  <div class="toolbar" role="group" aria-label="Directory view controls">
-    <div class="view-toggle">
-      <button id="btnGrid" aria-pressed="true" title="Grid view">Grid</button>
-      <button id="btnList" aria-pressed="false" title="List view">List</button>
-    </div>
-  </div>
+  <section class="view-toggle" aria-label="Change directory view">
+    <button id="gridView" aria-pressed="true">Grid</button>
+    <button id="listView" aria-pressed="false">List</button>
+  </section>
 
-  <section id="members" class="grid" aria-live="polite">
-    <!-- Cards injected here -->
+  <section id="memberContainer"
+           class="members grid-view"
+           aria-live="polite">
+    <!-- Member cards will be injected by directory.js -->
   </section>
 </main>
 
