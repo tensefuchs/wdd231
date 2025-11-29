@@ -50,7 +50,6 @@ function updateVisitMessage(visitBox) {
  * Render the 8 attraction cards into the grid.
  */
 function renderAttractions(grid) {
-  // We already have visitMessage as first child; append cards after that.
   attractions.forEach((item, index) => {
     const card = document.createElement("article");
     card.className = `place place${index + 1} panel`;
@@ -60,7 +59,8 @@ function renderAttractions(grid) {
       <figure>
         <img src="${escapeAttr(item.image)}"
              alt="${escapeAttr(item.name)}"
-             width="300" height="200"
+             width="300"
+             height="200"
              loading="lazy">
       </figure>
       <address>${escapeHtml(item.address)}</address>
