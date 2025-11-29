@@ -1,62 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Required metas -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>City Chamber • Discover</title>
-  <meta name="description" content="Discover local highlights, culture, and attractions in our chamber area.">
-  <meta name="author" content="Supa-anan Fuchs">
+  <meta name="description" content="Discover key attractions, neighborhoods, and features of our chamber area." />
+  <meta name="author" content="Supa-anan Fuchs" />
 
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <!-- Uses root-level styles folder -->
+  <link rel="stylesheet" href="../styles/small.css" />
+  <link rel="stylesheet" href="../styles/larger.css" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles/normalize.css">
-  <link rel="stylesheet" href="styles/small.css">
-  <link rel="stylesheet" href="styles/larger.css">
+  <!-- Shared scripts from the site root -->
+  <script src="../scripts/nav.js" defer></script>
+  <script src="../scripts/date.js" defer></script>
 
-  <!-- JS -->
-  <script src="scripts/nav.js" defer></script>
-  <script src="scripts/date.js" defer></script>
-  <!-- module for JSON import + last visit -->
+  <!-- Discover page module -->
   <script type="module" src="scripts/discover.mjs"></script>
 </head>
 <body>
-<header class="site-header">
-  <div class="brand-wrap">
-    <img src="images/logo.svg" alt="City Chamber logo" width="40" height="40" class="logo">
-    <a class="brand" href="./">City Chamber</a>
-  </div>
+  <header class="site-header">
+    <div class="brand-wrap">
+      <img src="images/logo.svg" alt="City Chamber logo" class="logo" width="40" height="40" />
+      <a href="./" class="brand">City Chamber</a>
+    </div>
 
-  <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
+    <button id="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
 
-  <nav id="primary-nav" class="nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="directory.html">Directory</a></li>
-      <li><a href="discover.html" aria-current="page">Discover</a></li>
-      <li><a href="join.html">Join</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav id="primary-nav" class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html" aria-current="page">Discover</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main class="discover-main">
-  <h1>Discover Our Area</h1>
+  <main class="discover-main">
+    <h1>Discover Düsseldorf</h1>
 
-  <!-- Grid container: first child is visit message, then 8 cards -->
-  <section class="discover-grid" id="discoverGrid">
-    <section class="visit-message panel" id="visitMessage" aria-live="polite">
-      <!-- Filled by JS (localStorage last visit) -->
+    <section class="discover-grid" id="discoverGrid">
+      <!-- Visit message block (localStorage-based) -->
+      <section class="visit-message panel" id="visitMessage" aria-live="polite">
+        <!-- JS fills this -->
+      </section>
+      <!-- 8 attraction cards will be injected here by discover.mjs -->
     </section>
-    <!-- Cards will be injected here by discover.mjs -->
-  </section>
-</main>
+  </main>
 
-<footer>
-  <p>&copy; <span id="currentyear"></span> City Chamber • WDD 231</p>
-  <p id="lastModified"></p>
-</footer>
+  <footer>
+    <p>&copy; <span id="currentyear"></span> City Chamber • WDD 231</p>
+    <p id="lastModified"></p>
+  </footer>
 </body>
 </html>
