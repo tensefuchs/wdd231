@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jellycat Collector – Form Submission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Displays the submitted information from the Jellycat Collector form.">
+  <meta name="author" content="Supa-anan Fuchs">
+
+  <link rel="icon" href="images/favicon.ico">
+
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/large.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Thank You</h1>
+    <p>Here is the information you submitted:</p>
+
+    <dl id="submissionData" class="submission-list">
+      <!-- JS will inject values -->
+    </dl>
+
+    <p><a class="btn" href="tips.html">Back to Tips</a></p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const output = document.getElementById('submissionData');
+
+    if ([...params].length === 0) {
+      output.innerHTML = '<p>No submission data found.</p>';
+    } else {
+      let html = '';
+      params.forEach((value, key) => {
+        html += `
+          <div class="submission-row">
+            <dt>${key}</dt>
+            <dd>${value}</dd>
+          </div>
+        `;
+      });
+      output.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

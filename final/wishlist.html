@@ -1,69 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Wishlist – Jellycat Collector</title>
-  <meta name="description" content="Save and manage your Jellycat wishlist. Items persist with localStorage." />
-  <meta name="author" content="Supa-anan Fuchs" />
+  <meta charset="UTF-8">
+  <title>Jellycat Collector – Wishlist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a simple Jellycat wishlist stored in localStorage in your browser.">
+  <meta name="author" content="Supa-anan Fuchs">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Precursive&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jellycat Collector – Wishlist">
+  <meta property="og:description" content="Add, view, and remove wishlist items stored locally in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/final/wishlist.html">
+  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/final/images/hero-large.webp">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles/base.css" />
-  <link rel="stylesheet" href="styles/large.css" />
+  <link rel="icon" href="images/favicon.ico">
 
-  <!-- Scripts -->
-  <script defer src="scripts/common.js"></script>
-  <script defer src="scripts/wishlist.js"></script>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/large.css">
+
+  <script type="module" src="scripts/wishlist-page.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <span id="site-title">Jellycat Collector</span>
-      <button id="menuButton" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  <header>
+    <div class="top-bar">
+      <h1 class="site-title">Jellycat Collector</h1>
+      <button id="menuButton" class="menu-button" aria-label="Open navigation" aria-expanded="false">
+        &#9776;
+      </button>
     </div>
-    <nav id="primaryNav" class="nav" aria-label="Primary">
+
+    <nav id="primaryNav" class="primary-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="collection.html">Collection</a></li>
-        <li><a class="active" href="wishlist.html">Wishlist</a></li>
-        <li><a href="tips.html">Care & Tips</a></li>
-        <li><a href="../form.html">Review</a></li>
+        <li><a href="wishlist.html" class="active">Wishlist</a></li>
+        <li><a href="tips.html">Tips</a></li>
         <li><a href="references.html">References</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h1>Wishlist</h1>
-
-    <section class="card">
-      <h2>Add an Item</h2>
-      <form id="wishForm" class="field" autocomplete="off">
-        <label for="wishName">Jellycat name</label>
-        <input type="text" id="wishName" name="wishName" required placeholder="Amuseables Mitten" />
-        <div class="buttons">
-          <button class="primary" type="submit">Add to Wishlist</button>
-        </div>
-      </form>
+    <section class="page-header">
+      <h2>Wishlist Practice</h2>
+      <p>
+        This page demonstrates <code>localStorage</code> by saving a simple wishlist on this device.
+        The wishlist is not meant to be a real shopping system; it is just for practice.
+      </p>
     </section>
 
     <section class="card">
-      <h2>Your Wishlist</h2>
-      <ul id="wishList" class="list" aria-live="polite"></ul>
-      <div class="buttons" style="margin-top:.5rem;">
-        <button id="clearAll" class="ghost" type="button">Clear All</button>
+      <h3>Add Wishlist Items</h3>
+      <form id="wishForm" class="field-row">
+        <label for="wishName">Wishlist item (for example: “Amuseable Avocado”)</label>
+        <input type="text" id="wishName" name="wishName" required>
+        <button type="submit" class="btn primary">Add to Wishlist</button>
+      </form>
+
+      <div class="field-row">
+        <button type="button" id="clearAll" class="btn secondary">Clear All</button>
       </div>
+
+      <h3>Saved Wishlist</h3>
+      <ul id="wishList" class="wishlist-list">
+        <!-- JS will render items here -->
+      </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="currentyear"></span> | Supa-anan Fuchs | Düsseldorf, Germany</p>
+    <p>&copy; <span id="currentyear"></span> | Jellycat Collector | Supa-anan Fuchs</p>
     <p id="lastModified"></p>
+    <p>
+      <a href="references.html">References &amp; Attributions</a> |
+      <a href="https://www.youtube.com/your-video-link" target="_blank" rel="noopener">Project Walkthrough Video</a>
+    </p>
   </footer>
 </body>
 </html>

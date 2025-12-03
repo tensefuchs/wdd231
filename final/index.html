@@ -2,56 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Jellycat Collector – Home</title>
-  <meta name="description" content="Jellycat Collector — Supa-anan Fuchs. Explore my Jellycat Amuseables collection, manage a wishlist, and read care/display tips.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jellycat Collector – a Jellycat wishlist and collection hub by Supa-anan Fuchs. Explore featured plushies, wishlist ideas, and collector tips.">
   <meta name="author" content="Supa-anan Fuchs">
-  <!-- Google Fonts -->
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jellycat Collector – Home">
+  <meta property="og:description" content="Browse Jellycat plushies, manage a wishlist, and learn collector tips.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/final/index.html">
+  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/final/images/hero-large.webp">
+
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Precursive&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Styles -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/large.css">
+
   <!-- JS -->
-  <script defer src="scripts/common.js"></script>
+  <script type="module" src="scripts/home-page.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <span id="site-title">Jellycat Collector</span>
-      <button id="menuButton" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  <header>
+    <div class="top-bar">
+      <h1 class="site-title">Jellycat Collector</h1>
+      <button id="menuButton" class="menu-button" aria-label="Open navigation" aria-expanded="false">
+        &#9776;
+      </button>
     </div>
-    <nav id="primaryNav" class="nav" aria-label="Primary">
+
+    <nav id="primaryNav" class="primary-nav">
       <ul>
-        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="collection.html">Collection</a></li>
         <li><a href="wishlist.html">Wishlist</a></li>
-        <li><a href="tips.html">Care & Tips</a></li>
+        <li><a href="tips.html">Tips</a></li>
         <li><a href="references.html">References</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <h1>Welcome, Jellycat Fans!</h1>
-    <!-- Hero banner (same photo in 3 WebP sizes) -->
-    <picture class="hero">
-      <source srcset="images/hero-small.webp" media="(max-width: 600px)">
-      <source srcset="images/hero-medium.webp" media="(max-width: 1000px)">
-      <img
-        src="images/hero-large.webp"
-        alt="A cozy arrangement of Jellycat plush toys on a shelf"
-        width="1200" height="500" loading="eager">
-    </picture>
-    <section class="blurb card">
-      <h2>About this site</h2>
-      <p>This site showcases my Jellycat Amuseables collection. Browse the <strong>Collection</strong>, manage a <strong>Wishlist</strong> (saved with localStorage), and read <strong>Care & Tips</strong> for cleaning, storage, and display.</p>
-      <p>Built for WDD 131 with valid, responsive HTML/CSS and JavaScript that handles events, arrays, filtering, and persistent data.</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Welcome to Jellycat Collector</h2>
+        <p>
+          This site is a Jellycat wishlist and collection hub created as a student project by
+          <strong>Supa-anan Fuchs</strong> for WDD 231. It demonstrates semantic HTML,
+          responsive layouts, data-driven JavaScript, localStorage, and accessibility.
+        </p>
+        <p>
+          Use the Collection page to browse a curated list of Jellycat plushies, the Wishlist page to
+          practice saving your own ideas, and the Tips page for simple care and display inspiration.
+        </p>
+        <a class="btn primary" href="collection.html">Explore the Collection</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-large.webp" alt="A group of Jellycat plush toys arranged on a shelf" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="card">
+      <h2>How This Site Is Organized</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Collection (Data &amp; Modal)</h3>
+          <p>
+            Fetches Jellycat data from a JSON file using the Fetch API with <code>async/await</code>
+            and <code>try...catch</code>. Renders at least 15 items dynamically and includes an
+            accessible modal dialog for details.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>Wishlist (LocalStorage)</h3>
+          <p>
+            Uses <code>localStorage</code> to save a simple text-based wishlist for this browser. You can
+            add and remove items and see them persist across page reloads.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>Tips &amp; Form</h3>
+          <p>
+            Shares quick care and display ideas and includes an HTML form that submits to a separate
+            action page to display submitted data.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Project Video</h2>
+      <p>
+        This project includes a short walkthrough video demonstrating the JavaScript requirements.
+        You can find the link in the footer of each page.
+      </p>
     </section>
   </main>
+
   <footer>
-    <p>&copy; <span id="currentyear"></span> | Supa-anan Fuchs | Düsseldorf, Germany</p>
+    <p>&copy; <span id="currentyear"></span> | Jellycat Collector | Supa-anan Fuchs</p>
     <p id="lastModified"></p>
+    <p>
+      <a href="references.html">References &amp; Attributions</a> |
+      <a href="https://www.youtube.com/your-video-link" target="_blank" rel="noopener">Project Walkthrough Video</a>
+    </p>
   </footer>
 </body>
 </html>

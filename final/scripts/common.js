@@ -1,19 +1,26 @@
-// Footer dates
-const cy = document.getElementById("currentyear");
-if (cy) cy.textContent = new Date().getFullYear();
+// scripts/common.js
+export function initCommon() {
+  // Footer year
+  const yearSpan = document.getElementById('currentyear');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-const lm = document.getElementById("lastModified");
-if (lm) lm.textContent = "Last Modified: " + document.lastModified;
+  // Last modified
+  const lastModified = document.getElementById('lastModified');
+  if (lastModified) {
+    lastModified.textContent = `Last modified: ${document.lastModified}`;
+  }
 
-// Hamburger toggle
-const menuBtn = document.getElementById("menuButton");
-const nav = document.getElementById("primaryNav");
+  // Navigation
+  const menuButton = document.getElementById('menuButton');
+  const primaryNav = document.getElementById('primaryNav');
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    const expanded = nav.classList.contains("open");
-    menuBtn.setAttribute("aria-expanded", String(expanded));
-    menuBtn.textContent = expanded ? "✕" : "☰";
-  });
+  if (menuButton && primaryNav) {
+    menuButton.addEventListener('click', () => {
+      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!expanded));
+      primaryNav.classList.toggle('open');
+    });
+  }
 }

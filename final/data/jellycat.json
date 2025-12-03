@@ -1,0 +1,154 @@
+{
+  "plushies": [
+    {
+      "id": 1,
+      "name": "Bashful Beige Bunny (Small)",
+      "category": "Bunny",
+      "size": "Small",
+      "rarity": "Common",
+      "priceRange": "$20–$30",
+      "image": "images/bashful-beige-small.webp",
+      "description": "A classic soft beige bunny with long ears and a sweet expression, perfect as a starter Jellycat."
+    },
+    {
+      "id": 2,
+      "name": "Bashful Pink Bunny (Medium)",
+      "category": "Bunny",
+      "size": "Medium",
+      "rarity": "Common",
+      "priceRange": "$30–$40",
+      "image": "images/bashful-pink-medium.webp",
+      "description": "A rosy pink bunny that is popular for gifts, cuddles, and nursery decor."
+    },
+    {
+      "id": 3,
+      "name": "Bashful Navy Bunny (Medium)",
+      "category": "Bunny",
+      "size": "Medium",
+      "rarity": "Uncommon",
+      "priceRange": "$35–$45",
+      "image": "images/bashful-navy-medium.webp",
+      "description": "A deep navy bunny that stands out beautifully on a shelf of lighter plush toys."
+    },
+    {
+      "id": 4,
+      "name": "Amuseable Avocado",
+      "category": "Food",
+      "size": "Medium",
+      "rarity": "Common",
+      "priceRange": "$30–$40",
+      "image": "images/amuseable-avocado.webp",
+      "description": "A cheerful avocado with corduroy legs and a big stitched smile."
+    },
+    {
+      "id": 5,
+      "name": "Amuseable Croissant",
+      "category": "Food",
+      "size": "Small",
+      "rarity": "Uncommon",
+      "priceRange": "$25–$35",
+      "image": "images/amuseable-croissant.webp",
+      "description": "A flaky croissant plush with soft layers and tiny feet, perfect for breakfast-themed displays."
+    },
+    {
+      "id": 6,
+      "name": "Amuseable Slice of Pizza",
+      "category": "Food",
+      "size": "Medium",
+      "rarity": "Rare",
+      "priceRange": "$40–$60",
+      "image": "images/amuseable-pizza.webp",
+      "description": "A fun and quirky slice of pizza plush that tends to sell out quickly."
+    },
+    {
+      "id": 7,
+      "name": "Fuddlewuddle Elephant",
+      "category": "Animal",
+      "size": "Medium",
+      "rarity": "Uncommon",
+      "priceRange": "$30–$40",
+      "image": "images/fuddlewuddle-elephant.webp",
+      "description": "A snuggly elephant with a textured, ruffled fur pattern."
+    },
+    {
+      "id": 8,
+      "name": "Cordy Roy Fox",
+      "category": "Animal",
+      "size": "Medium",
+      "rarity": "Common",
+      "priceRange": "$25–$35",
+      "image": "images/cordy-roy-fox.webp",
+      "description": "A fox with corduroy-style ridged fur and a friendly face."
+    },
+    {
+      "id": 9,
+      "name": "Bashful Black & Cream Puppy",
+      "category": "Animal",
+      "size": "Medium",
+      "rarity": "Common",
+      "priceRange": "$30–$40",
+      "image": "images/bashful-puppy.webp",
+      "description": "A loyal-looking puppy plush that is a classic Jellycat companion."
+    },
+    {
+      "id": 10,
+      "name": "Snowflake Bunny",
+      "category": "Seasonal",
+      "size": "Medium",
+      "rarity": "Limited",
+      "priceRange": "$40–$60",
+      "image": "images/snowflake-bunny.webp",
+      "description": "A winter-themed bunny with subtle sparkle details."
+    },
+    {
+      "id": 11,
+      "name": "Amuseable Christmas Pudding",
+      "category": "Seasonal",
+      "size": "Small",
+      "rarity": "Limited",
+      "priceRange": "$30–$50",
+      "image": "images/amuseable-pudding.webp",
+      "description": "A festive pudding plush with holly on top and corduroy legs."
+    },
+    {
+      "id": 12,
+      "name": "Blossom Tulip Bunny (Small)",
+      "category": "Bunny",
+      "size": "Small",
+      "rarity": "Uncommon",
+      "priceRange": "$25–$35",
+      "image": "images/blossom-tulip-bunny.webp",
+      "description": "A floral-eared bunny with a tulip pattern, very popular in spring collections."
+    },
+    {
+      "id": 13,
+      "name": "Amuseable Rainbow",
+      "category": "Seasonal",
+      "size": "Medium",
+      "rarity": "Uncommon",
+      "priceRange": "$35–$50",
+      "image": "images/amuseable-rainbow.webp",
+      "description": "A bright rainbow plush with legs that brings happy color to any shelf."
+    },
+    {
+      "id": 14,
+      "name": "Bashful Silver Bunny (Large)",
+      "category": "Bunny",
+      "size": "Large",
+      "rarity": "Rare",
+      "priceRange": "$60–$80",
+      "image": "images/bashful-silver-large.webp",
+      "description": "A large, luxurious silver bunny that becomes a statement piece."
+    },
+    {
+      "id": 15,
+      "name": "Maple Bear",
+      "category": "Animal",
+      "size": "Medium",
+      "rarity": "Rare",
+      "priceRange": "$50–$80",
+      "image": "images/maple-bear.webp",
+      "description": "A warm-toned bear that is harder to find, making it a fun hunt for collectors."
+    }
+  ]
+}

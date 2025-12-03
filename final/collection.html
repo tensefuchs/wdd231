@@ -2,67 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Jellycat Collector – Collection</title>
-  <meta name="description" content="Browse my Jellycat Amuseables collection. Filter by category or size and sort A–Z. All images are optimized and lazy-loaded.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View a data-driven Jellycat collection with filters, sorting, and an accessible modal dialog.">
   <meta name="author" content="Supa-anan Fuchs">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Precursive&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jellycat Collector – Collection">
+  <meta property="og:description" content="Browse Jellycat plushies by category and size, fetched from JSON and rendered dynamically.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tensefuchs.github.io/wdd231/final/collection.html">
+  <meta property="og:image" content="https://tensefuchs.github.io/wdd231/final/images/hero-large.webp">
 
-  <!-- Styles (mobile-first + large overrides) -->
+  <link rel="icon" href="images/favicon.ico">
+
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/large.css">
 
-  <!-- Scripts -->
-  <script defer src="scripts/common.js"></script>
-  <script defer src="scripts/collection.js"></script>
+  <script type="module" src="scripts/collection-page.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <span id="site-title">Jellycat Collector</span>
-      <button id="menuButton" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  <header>
+    <div class="top-bar">
+      <h1 class="site-title">Jellycat Collector</h1>
+      <button id="menuButton" class="menu-button" aria-label="Open navigation" aria-expanded="false">
+        &#9776;
+      </button>
     </div>
-    <nav id="primaryNav" class="nav" aria-label="Primary">
+
+    <nav id="primaryNav" class="primary-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="collection.html">Collection</a></li>
+        <li><a href="collection.html" class="active">Collection</a></li>
         <li><a href="wishlist.html">Wishlist</a></li>
-        <li><a href="tips.html">Care & Tips</a></li>
+        <li><a href="tips.html">Tips</a></li>
         <li><a href="references.html">References</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h1>Collection</h1>
+    <section class="page-header">
+      <h2>Jellycat Collection</h2>
+      <p>
+        This collection is loaded from a local JSON file using the Fetch API.
+        It demonstrates asynchronous JavaScript with <code>async/await</code>, <code>try...catch</code>,
+        array methods, and dynamic DOM rendering.
+      </p>
+    </section>
 
-    <!-- Filters / Sort -->
-    <section class="filters card" aria-labelledby="filter-heading">
-      <h2 id="filter-heading">Filter</h2>
-      <div class="filter-row" role="toolbar" aria-label="Collection filters">
-        <button type="button" data-filter="all" class="chip active">All</button>
-        <!-- Category filters -->
-        <button type="button" data-filter="animal:other" class="chip">Other</button>
-        <!-- Size filters -->
-        <button type="button" data-filter="size:small" class="chip">Small</button>
-        <button type="button" data-filter="size:medium" class="chip">Medium</button>
-        <button type="button" data-filter="size:large" class="chip">Large</button>
-        <!-- Sort -->
-        <button type="button" data-sort="name" class="chip">Sort A–Z</button>
+    <section class="card filters">
+      <h3>Filters &amp; Sorting</h3>
+      <div class="chip-row">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="category:bunny">Bunnies</button>
+        <button type="button" class="chip" data-filter="category:food">Food</button>
+        <button type="button" class="chip" data-filter="category:animal">Animals</button>
+        <button type="button" class="chip" data-filter="category:seasonal">Seasonal</button>
+        <button type="button" class="chip" data-filter="size:small">Small</button>
+        <button type="button" class="chip" data-filter="size:medium">Medium</button>
+        <button type="button" class="chip" data-filter="size:large">Large</button>
+        <button type="button" class="chip" data-sort="name">Sort A–Z</button>
       </div>
     </section>
 
-    <!-- Gallery populated by scripts/collection.js -->
-    <section id="gallery" class="gallery" aria-live="polite"></section>
+    <section class="gallery-section">
+      <h3>Plush Gallery</h3>
+      <div id="gallery" class="gallery">
+        <!-- Cards rendered here by JS -->
+      </div>
+    </section>
+
+    <!-- Modal dialog -->
+    <section id="plushModalBackdrop" class="modal-backdrop" hidden>
+      <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button type="button" class="modal-close" aria-label="Close details">&times;</button>
+        <div class="modal-inner">
+          <h2 id="modalTitle"></h2>
+          <p id="modalCategory"></p>
+          <p id="modalSize"></p>
+          <p id="modalRarity"></p>
+          <p id="modalDescription"></p>
+        </div>
+      </article>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="currentyear"></span> | Supa-anan Fuchs | Düsseldorf, Germany</p>
+    <p>&copy; <span id="currentyear"></span> | Jellycat Collector | Supa-anan Fuchs</p>
     <p id="lastModified"></p>
+    <p>
+      <a href="references.html">References &amp; Attributions</a> |
+      <a href="https://www.youtube.com/your-video-link" target="_blank" rel="noopener">Project Walkthrough Video</a>
+    </p>
   </footer>
 </body>
 </html>
