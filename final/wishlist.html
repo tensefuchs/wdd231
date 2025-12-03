@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Wishlist – Jellycat Collector</title>
+  <meta name="description" content="Save and manage your Jellycat wishlist. Items persist with localStorage." />
+  <meta name="author" content="Supa-anan Fuchs" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Precursive&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/large.css" />
+
+  <!-- Scripts -->
+  <script defer src="scripts/common.js"></script>
+  <script defer src="scripts/wishlist.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span id="site-title">Jellycat Collector</span>
+      <button id="menuButton" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <nav id="primaryNav" class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a class="active" href="wishlist.html">Wishlist</a></li>
+        <li><a href="tips.html">Care & Tips</a></li>
+        <li><a href="../form.html">Review</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Wishlist</h1>
+
+    <section class="card">
+      <h2>Add an Item</h2>
+      <form id="wishForm" class="field" autocomplete="off">
+        <label for="wishName">Jellycat name</label>
+        <input type="text" id="wishName" name="wishName" required placeholder="Amuseables Mitten" />
+        <div class="buttons">
+          <button class="primary" type="submit">Add to Wishlist</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Your Wishlist</h2>
+      <ul id="wishList" class="list" aria-live="polite"></ul>
+      <div class="buttons" style="margin-top:.5rem;">
+        <button id="clearAll" class="ghost" type="button">Clear All</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Supa-anan Fuchs | Düsseldorf, Germany</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

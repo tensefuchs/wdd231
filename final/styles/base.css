@@ -1,0 +1,232 @@
+/* =========================
+   Blue Theme — Mobile First
+   WCAG AA contrast-safe
+   ========================= */
+:root{
+  --ink:#1f2937;            /* dark body text */
+  --bg:#f5f9ff;             /* very light blue page bg */
+  --card:#ffffff;           /* cards */
+  --accent1:#0b3d91;        /* dark royal blue (header gradient start) */
+  --accent2:#0050b3;        /* dark blue (header gradient end / primary btn) */
+  --border:#1e90ff;         /* non-text borders / accents */
+  --link:#0a58ca;           /* accessible blue on white */
+  --link-hover:#084298;     /* darker hover (also AA) */
+  --chip-active-bg:#dbeafe; /* pale blue (AA with dark text) */
+  --chip-text:#084298;      /* dark blue text for chips */
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family:Roboto,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* Headings: your hand font */
+h1,h2,#site-title{
+  font-family:'Edu VIC WA NT Hand Precursive',cursive;
+}
+
+/* =========================
+   Header + Navigation
+   ========================= */
+.site-header{
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#fff;
+  padding:.75rem 1rem;
+}
+
+#site-title{ font-size:1.4rem; display:block; }
+
+.hamburger{
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:1.6rem;
+  line-height:1;
+  cursor:pointer;
+}
+
+.nav ul{
+  list-style:none;
+  margin:.5rem 0 0;
+  padding:0;
+  display:none;              /* mobile: hidden until opened via JS */
+  flex-direction:column;
+  gap:.25rem;
+}
+.nav.open ul{ display:flex; } /* toggled via scripts/common.js */
+
+.nav a{
+  display:block;
+  padding:.5rem .75rem;
+  color:#fff;                            /* white on dark header (AA) */
+  text-decoration:none;
+  border-radius:.5rem;
+  font-weight:700;
+  transition:transform .2s ease, background-color .2s ease, color .2s ease;
+}
+.nav a:hover{
+  background-color:rgba(255,255,255,.15);
+  color:#fff;
+}
+.nav a.active{
+  outline:2px solid #fff; outline-offset:2px;
+}
+.nav a:focus-visible{
+  outline:2px solid #fff; outline-offset:2px;
+}
+
+/* =========================
+   Layout
+   ========================= */
+main{
+  max-width:72rem;
+  margin:1rem auto 2rem;
+  padding:0 1rem;
+}
+
+h1{ margin:.25rem 0 1rem; font-size:1.9rem; }
+
+/* Hero image */
+.hero img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+  border:2px solid var(--border);
+}
+
+/* Card container */
+.card{
+  background:var(--card);
+  border:2px solid var(--border);
+  border-radius:12px;
+  padding:1rem;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+  margin-top:1rem;
+}
+
+/* Links (outside header) — AA contrast on white */
+a{ color:var(--link); }
+a:hover{ color:var(--link-hover); }
+a:focus-visible{ outline:2px solid var(--link); outline-offset:2px; }
+
+/* =========================
+   Filters / Chips
+   ========================= */
+.filter-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+}
+.chip{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--link);                 /* readable on white */
+  padding:.4rem .7rem;
+  border-radius:999px;
+  cursor:pointer;
+}
+.chip:hover{ background:#f0f7ff; }
+.chip.active{
+  background:var(--chip-active-bg);
+  color:var(--chip-text);            /* dark blue on pale bg (AA) */
+  border-color:var(--chip-text);
+}
+
+/* =========================
+   Gallery
+   ========================= */
+.gallery{
+  display:grid;
+  grid-template-columns:1fr;         /* one column on mobile */
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.item{
+  background:#fff;
+  border:2px solid var(--border);
+  border-radius:12px;
+  padding:.75rem;
+  box-shadow:0 4px 8px rgba(0,0,0,.06);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 16px rgba(0,0,0,.12);
+}
+.item img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:8px;
+  margin-bottom:.5rem;
+}
+.item h3{ margin:.25rem 0 .25rem; color:#0b3d91; } /* strong, readable */
+.muted{ color:#4b5563; }
+
+/* =========================
+   Forms / Lists (Wishlist)
+   ========================= */
+.field{ display:grid; gap:.25rem; margin:.5rem 0; }
+.field input,.field select{
+  padding:.5rem .6rem;
+  border-radius:.5rem;
+  border:1px solid #cbd5e1;
+  background:#fff;
+  color:var(--ink);
+}
+.buttons{ display:flex; gap:.5rem; margin-top:.5rem; }
+.primary{
+  background:var(--accent2);         /* dark blue button (AA with white) */
+  color:#fff;
+  border:0;
+  padding:.55rem .9rem;
+  border-radius:.6rem;
+}
+.primary:hover{ filter:brightness(1.05); }
+.primary:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+.ghost{
+  background:#fff;
+  color:var(--accent2);
+  border:2px solid var(--accent2);
+  padding:.45rem .8rem;
+  border-radius:.6rem;
+}
+.ghost:hover{ background:#eef5ff; }
+
+.list{
+  list-style:none; padding:0; margin:0;
+  display:grid; gap:.5rem;
+}
+.list li{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.5rem .75rem;
+  border:1px solid #cbd5e1;
+  border-radius:.5rem;
+  background:#fff;
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer{
+  margin-top:2rem;
+  text-align:center;
+  background:#e6f0ff;                /* pale blue */
+  color:var(--ink);
+  padding:1rem;
+  font-size:.95rem;
+}
+
+/* =========================
+   Reduced Motion
+   ========================= */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; }
+}

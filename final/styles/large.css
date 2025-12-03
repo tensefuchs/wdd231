@@ -1,0 +1,19 @@
+/* =========================
+   Desktop / Larger screens
+   ========================= */
+@media only screen and (min-width: 48rem){
+  /* Nav: horizontal on large, hamburger hidden */
+  .hamburger{ display:none; }
+  .nav ul{
+    display:flex !important;
+    flex-direction:row;
+    gap:1rem;
+    margin:.75rem 0 0;
+  }
+
+  /* Gallery: three columns on large */
+  .gallery{
+    grid-template-columns: repeat(3, 1fr);
+    gap:1.25rem;
+  }
+}

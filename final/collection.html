@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Jellycat Collector – Collection</title>
+  <meta name="description" content="Browse my Jellycat Amuseables collection. Filter by category or size and sort A–Z. All images are optimized and lazy-loaded.">
+  <meta name="author" content="Supa-anan Fuchs">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Precursive&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles (mobile-first + large overrides) -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/large.css">
+
+  <!-- Scripts -->
+  <script defer src="scripts/common.js"></script>
+  <script defer src="scripts/collection.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span id="site-title">Jellycat Collector</span>
+      <button id="menuButton" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <nav id="primaryNav" class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="collection.html">Collection</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="tips.html">Care & Tips</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Collection</h1>
+
+    <!-- Filters / Sort -->
+    <section class="filters card" aria-labelledby="filter-heading">
+      <h2 id="filter-heading">Filter</h2>
+      <div class="filter-row" role="toolbar" aria-label="Collection filters">
+        <button type="button" data-filter="all" class="chip active">All</button>
+        <!-- Category filters -->
+        <button type="button" data-filter="animal:other" class="chip">Other</button>
+        <!-- Size filters -->
+        <button type="button" data-filter="size:small" class="chip">Small</button>
+        <button type="button" data-filter="size:medium" class="chip">Medium</button>
+        <button type="button" data-filter="size:large" class="chip">Large</button>
+        <!-- Sort -->
+        <button type="button" data-sort="name" class="chip">Sort A–Z</button>
+      </div>
+    </section>
+
+    <!-- Gallery populated by scripts/collection.js -->
+    <section id="gallery" class="gallery" aria-live="polite"></section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Supa-anan Fuchs | Düsseldorf, Germany</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

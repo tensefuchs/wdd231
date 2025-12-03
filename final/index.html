@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Jellycat Collector – Home</title>
+  <meta name="description" content="Jellycat Collector — Supa-anan Fuchs. Explore my Jellycat Amuseables collection, manage a wishlist, and read care/display tips.">
+  <meta name="author" content="Supa-anan Fuchs">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Precursive&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/large.css">
+  <!-- JS -->
+  <script defer src="scripts/common.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span id="site-title">Jellycat Collector</span>
+      <button id="menuButton" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <nav id="primaryNav" class="nav" aria-label="Primary">
+      <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="tips.html">Care & Tips</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome, Jellycat Fans!</h1>
+    <!-- Hero banner (same photo in 3 WebP sizes) -->
+    <picture class="hero">
+      <source srcset="images/hero-small.webp" media="(max-width: 600px)">
+      <source srcset="images/hero-medium.webp" media="(max-width: 1000px)">
+      <img
+        src="images/hero-large.webp"
+        alt="A cozy arrangement of Jellycat plush toys on a shelf"
+        width="1200" height="500" loading="eager">
+    </picture>
+    <section class="blurb card">
+      <h2>About this site</h2>
+      <p>This site showcases my Jellycat Amuseables collection. Browse the <strong>Collection</strong>, manage a <strong>Wishlist</strong> (saved with localStorage), and read <strong>Care & Tips</strong> for cleaning, storage, and display.</p>
+      <p>Built for WDD 131 with valid, responsive HTML/CSS and JavaScript that handles events, arrays, filtering, and persistent data.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Supa-anan Fuchs | Düsseldorf, Germany</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
