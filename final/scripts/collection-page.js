@@ -1,7 +1,7 @@
 // scripts/collection-page.js
 import { initCommon } from './common.js';
 
-const DATA_URL = './data/jellycats.json';
+const DATA_URL = './data/jellycat.json';
 
 let plushies = [];
 let currentFilter = 'all';
